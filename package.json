@@ -25,5 +25,9 @@
         "jsdoc": ">1.6.3",
         "webpack": "^4.35.3",
         "webpack-cli": "^3.3.5"
+    },
+    "homepage": "https://navegador5.github.io/tlistjs/global.html#",
+    "repository": {
+        "url": "https://github.com/navegador5/tlistjs.git"
     }
 }
