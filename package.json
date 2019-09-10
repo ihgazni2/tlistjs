@@ -1,0 +1,29 @@
+{
+    "name": "tlist",
+    "version": "1.0.0",
+    "description": "tuple list",
+    "main": "tlist.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "tuple",
+        "array",
+        "list"
+    ],
+    "author": "dli",
+    "license": "MIT",
+    "files": [
+        "doc/*",
+        "dist/*"
+    ],
+    "dependencies": {
+        "elist": "^1.4.13"
+    },
+    "devDependencies": {
+        "efdir": ">1.0.1",
+        "jsdoc": ">1.6.3",
+        "webpack": "^4.35.3",
+        "webpack-cli": "^3.3.5"
+    }
+}

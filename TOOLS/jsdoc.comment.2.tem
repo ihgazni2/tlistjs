@@ -1,0 +1,20 @@
+/**
+ * @funcname@
+ * 
+ * <pre>
+ * </pre>
+ *
+ * @example
+ * term
+ *
+ *      //prototype
+ *
+ *     ////
+ *     
+ *     //function
+ *     
+ *     ////
+ *
+ * @param {Object} obj - object
+ * @return {Array} tl - [t0,t1,...tk...,tn]
+ */

@@ -1,0 +1,12 @@
+var tlist = require("./tlist")
+
+@param {Object} obj - object
+@param {Object} d - dict
+@param {Array} tl - tlist
+@param {String|Number} k - key
+@param {String|Number} v - value
+
+@return {Array} tl - [t0,t1,...tk...,tn]
+@return {Array} indexes - indexes
+@return {Number} index - index
+
