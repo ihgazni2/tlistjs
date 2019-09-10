@@ -1,6 +1,6 @@
 #!/bin/sh
 
-scheme="git"
+scheme="https"
 git init
 if [ $scheme = "https" ];then
     git remote add origin https://github.com:navegador5/tlistjs.git
