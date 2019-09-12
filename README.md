@@ -6,16 +6,15 @@
 >__npm install tlist__
 
 
-## [Partly Usage In Jsdoc](https://navegador5.github.io/tlistjs/global.html#)
+## [Usage In Jsdoc](https://navegador5.github.io/tlistjs/global.html#)
 
-    partly, still in progresing.........
-    refer to https://navegador5.github.io/tlistjs/global.html#
+    refer to https://navegador5.github.io/tlistjs/global.html
 
 **[USAGE DOCS](https://navegador5.github.io/tlistjs/global.html#)**
 
 
-## In Progresing.........
--------------------------------------------------------
+## Introduce
+-------------
   
     refer to this python project,
     just migrate to javascript,
@@ -27,5 +26,11 @@
 
 ----------------------------------------------
 
+
+
+## Dependancy
+-------------
+
+[elistjs](https://github.com/ihgazni2/elistjs)
 
 
