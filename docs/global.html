@@ -234,7 +234,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line356">line 356</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line512">line 512</a>
     </li></ul></dd>
     
 
@@ -289,9 +289,18 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0,'a' ], [ 1,'b' ],[2,'c'], [ 0,'a' ], [ 1,'b' ],[2,'c'])
+    tl.allIndexesOfK(0)
+    tl[0]
+    tl[3]
     ////
+    > tl.allIndexesOfK(0)
+    [ 0, 3 ]
+    > tl[0]
+    [ 0, 'a' ]
+    > tl[3]
+    [ 0, 'a' ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -464,7 +473,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line417">line 417</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line616">line 616</a>
     </li></ul></dd>
     
 
@@ -519,9 +528,18 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.allIndexesOfKV(2,'c')
+    tl[2]
+    tl[5]
     ////
+    > tl.allIndexesOfKV(2,'c')
+    [ 2, 5 ]
+    > tl[2]
+    [ 2, 'c' ]
+    > tl[5]
+    [ 2, 'c' ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -668,7 +686,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line386">line 386</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line563">line 563</a>
     </li></ul></dd>
     
 
@@ -723,9 +741,18 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.allIndexesOfV('b')
+    tl[1]
+    tl[4]
     ////
+    > tl.allIndexesOfV('b')
+    [ 1, 4 ]
+    > tl[1]
+    [ 1, 'b' ]
+    > tl[4]
+    [ 1, 'b' ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -733,6 +760,263 @@
     ////
     > tlist.allIndexesOfV(tl,'b')
     [ 1, 4 ]</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="append"><span class="type-signature"></span>append<span class="signature">(tl, k, v)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    append
+
+<pre>
+    this method will change the original Tlist
+</pre>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">tlist</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>k</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">key</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>v</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1032">line 1032</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    tl - tlist
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>term
+
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.append('k','v')
+    ////
+    > tl.append('k','v')
+    Tlist [
+      [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ],
+      [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ],
+      [ 'k', 'v' ]]
+    > tl
+    Tlist [
+      [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ],
+      [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ],
+      [ 'k', 'v' ]]
+    >
+
+    //function
+    var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
+    tlist.append(tl,'k','v')
+    ////
+    > tlist.append(tl,'k','v')
+    [ [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ],
+      [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ],
+      [ 'k', 'v' ]]</code></pre>
 
 
 
@@ -872,7 +1156,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line812">line 812</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1378">line 1378</a>
     </li></ul></dd>
     
 
@@ -927,9 +1211,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.countK(1)
     ////
+    2
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -1101,7 +1387,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line873">line 873</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1467">line 1467</a>
     </li></ul></dd>
     
 
@@ -1156,9 +1442,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl =  new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.countKV(2,'c')
     ////
+    2
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -1305,7 +1593,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line842">line 842</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1422">line 1422</a>
     </li></ul></dd>
     
 
@@ -1360,9 +1648,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.countV('c')
     ////
+    2
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -1483,7 +1773,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line139">line 139</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line228">line 228</a>
     </li></ul></dd>
     
 
@@ -1660,7 +1950,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line266">line 266</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line383">line 383</a>
     </li></ul></dd>
     
 
@@ -1861,7 +2151,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line296">line 296</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line416">line 416</a>
     </li></ul></dd>
     
 
@@ -1917,8 +2207,11 @@
     <pre class="prettyprint"><code>term
 
      //prototype
-
+     var tl0 = new Tlist([ 0, 'a' ], [ 0, 'b' ])
+     var tl1 = new Tlist([ 1, 'a' ], [ 1, 'b' ])
+     tl0.extend(tl1)
     ////
+    Tlist [ [ 0, 'a' ], [ 0, 'b' ], [ 1, 'a' ], [ 1, 'b' ] ]
 
     //function
     var tl0 = [ [ 0, 'a' ], [ 0, 'b' ] ]
@@ -2066,7 +2359,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line449">line 449</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line663">line 663</a>
     </li></ul></dd>
     
 
@@ -2121,9 +2414,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.firstIndexOfK(1)
     ////
+    1
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -2296,7 +2591,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line507">line 507</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line753">line 753</a>
     </li></ul></dd>
     
 
@@ -2351,10 +2646,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.firstIndexOfKV(2,'c')
     ////
-
+    2
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
     tlist.firstIndexOfKV(tl,2,'c')
@@ -2500,7 +2796,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line476">line 476</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line708">line 708</a>
     </li></ul></dd>
     
 
@@ -2555,13 +2851,17 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.firstIndexOfV('b')
     ////
+    1
 
     //function
-
+    var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
+    firstIndexOfV(tl,'b')
     ////
+    1
     </code></pre>
 
 
@@ -2702,7 +3002,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1530">line 1530</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2463">line 2463</a>
     </li></ul></dd>
     
 
@@ -2757,9 +3057,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'d'])
+    tl.getAllK(2)
     ////
+    Tlist [ [ 2, 'c' ], [ 2, 'd' ] ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'d'] ]
@@ -2931,7 +3233,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1590">line 1590</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2552">line 2552</a>
     </li></ul></dd>
     
 
@@ -2986,9 +3288,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'d'])
+    tlist.getAllKV(1,'b')
     ////
+    [ [ 1, 'b' ], [ 1, 'b' ] ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -3134,7 +3438,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1559">line 1559</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2507">line 2507</a>
     </li></ul></dd>
     
 
@@ -3189,9 +3493,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'d'])
+    tl.getAllV('a')
     ////
+    Tlist [ [ 0, 'a' ], [ 3, 'a' ] ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 11, 'b' ],[2,'c'] ]
@@ -3337,7 +3643,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1356">line 1356</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2205">line 2205</a>
     </li></ul></dd>
     
 
@@ -3392,9 +3698,12 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'d'])
+    tl.getFirstK(2)
     ////
+    [ 2, 'c' ]
+
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'d'] ]
@@ -3566,7 +3875,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1413">line 1413</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2290">line 2290</a>
     </li></ul></dd>
     
 
@@ -3621,9 +3930,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.getFirstKV(0,'a')
     ////
+    [ 0, 'a' ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -3769,7 +4080,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1384">line 1384</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2247">line 2247</a>
     </li></ul></dd>
     
 
@@ -3824,9 +4135,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'d'])
+    tl.getFirstV('a')
     ////
+    [ 0, 'a' ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -3995,7 +4308,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1263">line 1263</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2064">line 2064</a>
     </li></ul></dd>
     
 
@@ -4050,9 +4363,15 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 11, 'b' ],[2,'d'])
+    tl.getK(2,0)
+    tl.getK(2,1)
     ////
+    > tl.getK(2,0)
+    [ 2, 'c' ]
+    > tl.getK(2,1)
+    [ 2, 'd' ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 11, 'b' ],[2,'d'] ]
@@ -4247,7 +4566,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1326">line 1326</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2160">line 2160</a>
     </li></ul></dd>
     
 
@@ -4302,9 +4621,12 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.getKV(tl,1,'b',1)
     ////
+    > tl.getKV(1,'b',0)
+    [ 1, 'b' ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -4450,7 +4772,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1441">line 1441</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2332">line 2332</a>
     </li></ul></dd>
     
 
@@ -4505,9 +4827,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'d'])
+    tl.getLastK(2)
     ////
+    [ 2, 'd' ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'d'] ]
@@ -4679,7 +5003,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1501">line 1501</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2420">line 2420</a>
     </li></ul></dd>
     
 
@@ -4734,9 +5058,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'d'])
+    tl.getLastKV(2,'c')
     ////
+    [ 2, 'c']
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -4882,7 +5208,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1470">line 1470</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2375">line 2375</a>
     </li></ul></dd>
     
 
@@ -4937,9 +5263,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'d'])
+    tl.getLastV('a')
     ////
+    [ 3, 'a' ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'d'] ]
@@ -5108,7 +5436,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1294">line 1294</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2113">line 2113</a>
     </li></ul></dd>
     
 
@@ -5163,9 +5491,15 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 11, 'b' ],[2,'d'])
+    tl.getV('b',0)
+    tl.getV('b',1)
     ////
+    > tl.getV('b',0)
+    [ 1, 'b' ]
+    > tl.getV('b',1)
+    [ 11, 'b' ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 11, 'b' ],[2,'d'] ]
@@ -5311,7 +5645,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line717">line 717</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1231">line 1231</a>
     </li></ul></dd>
     
 
@@ -5366,9 +5700,15 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.includesK(1)
+    tl.includesK(200)
     ////
+    > tl.includesK(1)
+    true
+    > tl.includesK(200)
+    false
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -5544,7 +5884,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line783">line 783</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1334">line 1334</a>
     </li></ul></dd>
     
 
@@ -5599,9 +5939,15 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.includesKV(0,'a')
+    tl.includesKV(0,'c')
     ////
+    >tl.includesKV(0,'a')
+    true
+    >tl.includesKV(0,'c')
+    false
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -5751,7 +6097,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line749">line 749</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1281">line 1281</a>
     </li></ul></dd>
     
 
@@ -5806,9 +6152,15 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.includesV('b')
+    tl.includesV('e')
     ////
+    >tl.includesV('b')
+    true
+    >tl.includesV('e')
+    false
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -5828,7 +6180,7 @@
     
 
     
-    <h4 class="name" id="insert"><span class="type-signature"></span>insert<span class="signature">(tl, position, k, v)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="insert"><span class="type-signature"></span>insert<span class="signature">(tl, k, v, position)</span><span class="type-signature"> &rarr; {Array}</span></h4>
     
 
     
@@ -5839,6 +6191,7 @@
     insert
 
 <pre>
+    this method will change the original Tlist
 </pre>
 </div>
 
@@ -5892,29 +6245,6 @@
             
 
             <td class="description last">tlist</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>position</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">index</td>
         </tr>
 
     
@@ -5970,6 +6300,29 @@
         </tr>
 
     
+
+        <tr>
+            
+                <td class="name"><code>position</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">index</td>
+        </tr>
+
+    
     </tbody>
 </table>
 
@@ -6007,7 +6360,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line631">line 631</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line957">line 957</a>
     </li></ul></dd>
     
 
@@ -6032,6 +6385,28 @@
 
 
 
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    tl - tlist
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
 
 
 
@@ -6040,24 +6415,44 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    //to avoid name conflict with prototype insert added by elist to Array
+    //insertOne
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.insertOne('k','v',2) 
     ////
-
-    //function
-    var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
-    tlist.insert(tl,2,'k','v')
-    ////
-    > tlist.insert(tl,2,'k','v')
-    [ [ 0, 'a' ],
+    > tl.insertOne('k','v',2)
+    Tlist [
+      [ 0, 'a' ],
       [ 1, 'b' ],
       [ 'k', 'v' ],
       [ 2, 'c' ],
       [ 0, 'a' ],
       [ 1, 'b' ],
       [ 2, 'c' ] ]
+    > tl
+    Tlist [
+      [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 'k', 'v' ],
+      [ 2, 'c' ],
+      [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ] ]
+    >
 
-    </code></pre>
+    //function
+    var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
+    tlist.insert(tl,'k','v',2)
+    ////
+    > tlist.insert(tl,'k','v',2)
+    [ [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 'k', 'v' ],
+      [ 2, 'c' ],
+      [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ] ]</code></pre>
 
 
 
@@ -6067,7 +6462,7 @@
     
 
     
-    <h4 class="name" id="insertTl"><span class="type-signature"></span>insertTl<span class="signature">(tl, position, tl1)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    <h4 class="name" id="insertTl"><span class="type-signature"></span>insertTl<span class="signature">(tl, tl1, position)</span><span class="type-signature"> &rarr; {Array}</span></h4>
     
 
     
@@ -6078,6 +6473,7 @@
     insertTl
 
 <pre>
+    this method will change the original Tlist
 </pre>
 </div>
 
@@ -6137,29 +6533,6 @@
 
         <tr>
             
-                <td class="name"><code>position</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">index</td>
-        </tr>
-
-    
-
-        <tr>
-            
                 <td class="name"><code>tl1</code></td>
             
 
@@ -6177,6 +6550,29 @@
             
 
             <td class="description last">tlist</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>position</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">index</td>
         </tr>
 
     
@@ -6217,7 +6613,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line684">line 684</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1180">line 1180</a>
     </li></ul></dd>
     
 
@@ -6272,17 +6668,30 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+     var tl1 = new Tlist(['k','v'],['k','v'])
+     tl.insertTl(tl1,2)
     ////
+    > tl.insertTl(tl1,2)
+    Tlist [
+      [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 'k', 'v' ],
+      [ 'k', 'v' ],
+      [ 2, 'c' ],
+      [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ] ]
+    >
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
     var tl1 = [ ['k','v'],['k','v']]
-    tlist.insertTl(tl,2,tl1)
+    tlist.insertTl(tl,tl1,2)
     tl
     ////
-    > tlist.insertTl(tl,2,tl1)
+    > tlist.insertTl(tl,tl1,2)
     [ [ 0, 'a' ],
       [ 1, 'b' ],
       [ 'k', 'v' ],
@@ -6417,7 +6826,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line79">line 79</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line168">line 168</a>
     </li></ul></dd>
     
 
@@ -6603,7 +7012,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line42">line 42</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line131">line 131</a>
     </li></ul></dd>
     
 
@@ -6819,7 +7228,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line170">line 170</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line259">line 259</a>
     </li></ul></dd>
     
 
@@ -6885,6 +7294,190 @@
     ////
     > tlist.kvl2tl(kl,vl)
     [ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'a' ], [ 3, 'b' ] ]</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="l2tl"><span class="type-signature"></span>l2tl<span class="signature">(l)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    l2tl
+
+<pre>
+</pre>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>l</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">list</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3854">line 3854</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    tl - [t0,t1,...tk...,tn]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>term
+
+     //prototype
+
+    ////
+
+    //function
+    var l = [ 0, 'a', 1, 'b', 2, 'c', 0, 'a', 1, 'b', 2, 'c' ]
+    tlist.l2tl(l)
+    ////
+    > tlist.l2tl(l)
+    [ [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ],
+      [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ] ]
+    ></code></pre>
 
 
 
@@ -7024,7 +7617,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line537">line 537</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line798">line 798</a>
     </li></ul></dd>
     
 
@@ -7079,9 +7672,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.lastIndexOfK(0)
     ////
+    3
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -7254,7 +7849,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line595">line 595</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line885">line 885</a>
     </li></ul></dd>
     
 
@@ -7309,9 +7904,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.lastIndexOfKV(2,'c')
     ////
+    5
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -7457,7 +8054,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line565">line 565</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line841">line 841</a>
     </li></ul></dd>
     
 
@@ -7512,14 +8109,275 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.lastIndexOfV('b')
     ////
+    4
+
+    //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
     tlist.lastIndexOfV(tl,'b')
+    ////
+    4</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="prepend"><span class="type-signature"></span>prepend<span class="signature">(tl, k, v)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    prepend
+
+<pre>
+    this method will change the original Tlist
+</pre>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">tlist</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>k</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">key</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>v</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">value</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1102">line 1102</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    tl - tlist
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>term
+
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.prepend('k','v')
+    ////
+    > tl.prepend('k','v')
+    Tlist [
+      ['k', 'v'],
+      [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ],
+      [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ]]
+    > tl
+    Tlist [
+      ['k', 'v'],
+      [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ],
+      [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ]]
+    >
+
     //function
-    4
-    ////</code></pre>
+    var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
+    tlist.prepend(tl,'k','v')
+    ////
+    > tlist.prepend(tl,'k','v')
+    [ 
+      ['k', 'v'],
+      [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ],
+      [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ]]</code></pre>
 
 
 
@@ -7656,7 +8514,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line327">line 327</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line461">line 461</a>
     </li></ul></dd>
     
 
@@ -7711,9 +8569,12 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl0 = new Tlist([ 0, 'a' ], [ 0, 'b' ])
+    var tl1 = new Tlist([ 1, 'a' ], [ 1, 'b' ])
+    tl0.prextend(tl1)
     ////
+    Tlist [ [ 1, 'a' ], [ 1, 'b' ], [ 0, 'a' ], [ 0, 'b' ] ]
 
     //function
     var tl0 = [ [ 0, 'a' ], [ 0, 'b' ] ]
@@ -7861,7 +8722,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1173">line 1173</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1927">line 1927</a>
     </li></ul></dd>
     
 
@@ -7916,9 +8777,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.rmAllK(2)
     ////
+    Tlist [ [ 0, 'a' ], [ 1, 'b' ], [ 0, 'a' ], [ 1, 'b' ] ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -8091,7 +8954,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1233">line 1233</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2015">line 2015</a>
     </li></ul></dd>
     
 
@@ -8146,9 +9009,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.rmAllKV(1,'b')
     ////
+    Tlist [ [ 0, 'a' ], [ 2, 'c' ], [ 0, 'a' ], [ 2, 'c' ] ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -8294,7 +9159,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1203">line 1203</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1971">line 1971</a>
     </li></ul></dd>
     
 
@@ -8349,9 +9214,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl =  new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.rmAllV('a')
     ////
+    Tlist [ [ 1, 'b' ], [ 2, 'c' ], [ 1, 'b' ], [ 2, 'c' ] ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -8498,7 +9365,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line998">line 998</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1668">line 1668</a>
     </li></ul></dd>
     
 
@@ -8553,9 +9420,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.rmFirstK(1)
     ////
+    Tlist [ [ 0, 'a' ], [ 2, 'c' ], [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ] ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -8728,7 +9597,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1055">line 1055</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1752">line 1752</a>
     </li></ul></dd>
     
 
@@ -8783,9 +9652,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.rmFirstKV(2,'c')
     ////
+    Tlist [ [ 0, 'a' ], [ 1, 'b' ], [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ] ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -8931,7 +9802,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1026">line 1026</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1710">line 1710</a>
     </li></ul></dd>
     
 
@@ -8986,9 +9857,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.rmFirstV('b')
     ////
+    Tlist [ [ 0, 'a' ], [ 2, 'c' ], [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ] ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -9157,7 +10030,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line903">line 903</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1517">line 1517</a>
     </li></ul></dd>
     
 
@@ -9212,9 +10085,17 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    var tl1 = tl.rmK(1,1)
+    tl1
+    var tl2 = tl.rmK(1,0)
+    tl2
     ////
+    >tl1
+    Tlist [ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ], [ 0, 'a' ], [ 2, 'c' ] ]
+    >tl2
+    Tlist [ [ 0, 'a' ], [ 2, 'c' ], [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ] ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -9409,7 +10290,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line966">line 966</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1621">line 1621</a>
     </li></ul></dd>
     
 
@@ -9464,9 +10345,18 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    var tl1 = tl.rmKV(1,'b',1)
+    tl1
+    var tl2 = tl.rmKV(1,'b',0)
+    tl2
     ////
+    >tl1
+    Tlist [ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ], [ 0, 'a' ], [ 2, 'c' ] ]
+    >tl2
+    Tlist [ [ 0, 'a' ], [ 2, 'c' ], [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ] ]
+
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -9612,7 +10502,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1083">line 1083</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1795">line 1795</a>
     </li></ul></dd>
     
 
@@ -9667,9 +10557,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.rmLastK(1)
     ////
+    Tlist [ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ], [ 0, 'a' ], [ 2, 'c' ] ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -9841,7 +10733,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1143">line 1143</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1883">line 1883</a>
     </li></ul></dd>
     
 
@@ -9896,9 +10788,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.rmLastKV(2,'c')
     ////
+    Tlist [ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ], [ 0, 'a' ], [ 1, 'b' ] ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -10044,7 +10938,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1113">line 1113</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1840">line 1840</a>
     </li></ul></dd>
     
 
@@ -10099,9 +10993,12 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.rmLastV('c')
     ////
+    Tlist [ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ], [ 0, 'a' ], [ 1, 'b' ] ]
+
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -10271,7 +11168,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line934">line 934</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1568">line 1568</a>
     </li></ul></dd>
     
 
@@ -10326,9 +11223,17 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    var tl1 = tl.rmV('a',1)
+    tl1
+    var tl2 = tl.rmV('a',0)
+    tl2
     ////
+    > tl1
+    Tlist [ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ], [ 1, 'b' ], [ 2, 'c' ] ]
+    > tl2
+    Tlist [ [ 1, 'b' ], [ 2, 'c' ], [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ] ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -10523,7 +11428,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1636">line 1636</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2631">line 2631</a>
     </li></ul></dd>
     
 
@@ -10578,9 +11483,30 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 'k', 'b' ],[2, 'c'], [ 3, 'a' ], [ 'k', 'b' ],[2,'c'])
+    tl.set('k','vv',1)
+    tl.set('k','vvv',0)
     ////
+    > tl.set('k','vv',1)
+    Tlist [
+      [ 0, 'a' ],
+      [ 'k', 'b' ],
+      [ 2, 'c' ],
+      [ 3, 'a' ],
+      [ 'k', 'vv' ],
+      [ 2, 'c' ] ]
+    >
+    > tl.set('k','vvv',0)
+    Tlist [
+      [ 0, 'a' ],
+      [ 'k', 'vvv' ],
+      [ 2, 'c' ],
+      [ 3, 'a' ],
+      [ 'k', 'vv' ],
+      [ 2, 'c' ] ]
+    >
+
 
     //function
     var tl = [ [ 0, 'a' ], [ 'k', 'b' ],[2, 'c'], [ 3, 'a' ], [ 'k', 'b' ],[2,'c'] ]
@@ -10767,7 +11693,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1685">line 1685</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2833">line 2833</a>
     </li></ul></dd>
     
 
@@ -10822,9 +11748,19 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 'k', 'b' ],[2, 'c'], [ 3, 'a' ], [ 'k', 'b' ],[2,'c'])
+    tl.setAll('k','vv')
     ////
+    > tl.setAll('k','vv')
+    Tlist [
+      [ 0, 'a' ],
+      [ 'k', 'vv' ],
+      [ 2, 'c' ],
+      [ 3, 'a' ],
+      [ 'k', 'vv' ],
+      [ 2, 'c' ] ]
+    >
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -10857,6 +11793,557 @@
     
 
     
+    <h4 class="name" id="setFirst"><span class="type-signature"></span>setFirst<span class="signature">(tl, k, v, which)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    setFirst
+
+<pre>
+</pre>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">tlist</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>k</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">key</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>v</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>which</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">index</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2701">line 2701</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    tl - [t0,t1,...tk...,tn]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>term
+
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 'k', 'b' ],[2, 'c'], [ 3, 'a' ], [ 'k', 'b' ],[2,'c'])
+    tl.setFirst('k','vv')
+    ////
+    > tl.setFirst('k','vv')
+    Tlist [
+      [ 0, 'a' ],
+      [ 'k', 'vv' ],
+      [ 2, 'c' ],
+      [ 3, 'a' ],
+      [ 'k', 'b' ],
+      [ 2, 'c' ] ]
+    >
+
+    //function
+    var tl = [ [ 0, 'a' ], [ 'k', 'b' ],[2, 'c'], [ 3, 'a' ], [ 'k', 'b' ],[2,'c'] ]
+    tlist.setFirst(tl,'k','vv')
+    tl
+    ////
+    > tlist.setFirst(tl,'k','vv')
+    [ [ 0, 'a' ],
+      [ 'k', 'vv' ],
+      [ 2, 'c' ],
+      [ 3, 'a' ],
+      [ 'k', 'b' ],
+      [ 2, 'c' ] ]
+    > tl
+    [ [ 0, 'a' ],
+      [ 'k', 'vv' ],
+      [ 2, 'c' ],
+      [ 3, 'a' ],
+      [ 'k', 'b' ],
+      [ 2, 'c' ] ]
+    ></code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="setLast"><span class="type-signature"></span>setLast<span class="signature">(tl, k, v, which)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    setLast
+
+<pre>
+</pre>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">tlist</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>k</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">key</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>v</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+|
+
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">value</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>which</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">index</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2765">line 2765</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    tl - [t0,t1,...tk...,tn]
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>term
+
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 'k', 'b' ],[2, 'c'], [ 3, 'a' ], [ 'k', 'b' ],[2,'c'])
+    tl.setLast('k','vv')
+    ////
+    [ [ 0, 'a' ],
+      [ 'k', 'b' ],
+      [ 2, 'c' ],
+      [ 3, 'a' ],
+      [ 'k', 'vv' ],
+      [ 2, 'c' ] ]
+
+    //function
+    var tl = [ [ 0, 'a' ], [ 'k', 'b' ],[2, 'c'], [ 3, 'a' ], [ 'k', 'b' ],[2,'c'] ]
+    tlist.setLast(tl,'k','vv')
+    tl
+    ////
+    > tlist.setLast(tl,'k','vv')
+    [ [ 0, 'a' ],
+      [ 'k', 'b' ],
+      [ 2, 'c' ],
+      [ 3, 'a' ],
+      [ 'k', 'vv' ],
+      [ 2, 'c' ] ]
+    > tl
+    [ [ 0, 'a' ],
+      [ 'k', 'b' ],
+      [ 2, 'c' ],
+      [ 3, 'a' ],
+      [ 'k', 'vv' ],
+      [ 2, 'c' ] ]
+    ></code></pre>
+
+
+
+        
+            
+
+    
+
+    
     <h4 class="name" id="sortk"><span class="type-signature"></span>sortk<span class="signature">(tl)</span><span class="type-signature"> &rarr; {Array}</span></h4>
     
 
@@ -10868,6 +12355,7 @@
     sortk
 
 <pre>
+    this will change the original Tlist
 </pre>
 </div>
 
@@ -10961,7 +12449,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2099">line 2099</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3271">line 3271</a>
     </li></ul></dd>
     
 
@@ -11016,9 +12504,20 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.sortk()
+    tl
     ////
+    > tl.sortk()
+    Tlist [
+      [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ],
+      [ 2, 'c' ],
+      [ 3, 'a' ] ]
+    >
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -11051,6 +12550,8 @@
     sortkv
 
 <pre>
+    this will change the original Tlist
+    sort will first compare key, and then compare value
 </pre>
 </div>
 
@@ -11144,7 +12645,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2167">line 2167</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3407">line 3407</a>
     </li></ul></dd>
     
 
@@ -11199,9 +12700,30 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.sortkv()
+    tl
     ////
+    > tl.sortkv()
+    Tlist [
+      [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ],
+      [ 2, 'c' ],
+      [ 3, 'a' ] ]
+    >
+    > tl
+    Tlist [
+      [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ],
+      [ 2, 'c' ],
+      [ 3, 'a' ] ]
+    >
+
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -11234,6 +12756,7 @@
     sortv
 
 <pre>
+    this will change the original Tlist
 </pre>
 </div>
 
@@ -11327,7 +12850,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2133">line 2133</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3337">line 3337</a>
     </li></ul></dd>
     
 
@@ -11382,9 +12905,29 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.sortv()
+    tl
     ////
+    > tl.sortv()
+    Tlist [
+      [ 0, 'a' ],
+      [ 3, 'a' ],
+      [ 1, 'b' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ],
+      [ 2, 'c' ] ]
+    >
+    > tl
+    Tlist [
+      [ 0, 'a' ],
+      [ 3, 'a' ],
+      [ 1, 'b' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ],
+      [ 2, 'c' ] ]
+    >
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -11417,6 +12960,8 @@
     sortvk
 
 <pre>
+    this will change the original Tlist
+    sort will first compare value, and then compare key
 </pre>
 </div>
 
@@ -11510,7 +13055,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2200">line 2200</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3474">line 3474</a>
     </li></ul></dd>
     
 
@@ -11565,9 +13110,28 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.sortvk()
+    tl
     ////
+    > tl.sortvk()
+    Tlist [
+      [ 0, 'a' ],
+      [ 3, 'a' ],
+      [ 1, 'b' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ],
+      [ 2, 'c' ] ]
+    > tl
+    Tlist [
+      [ 0, 'a' ],
+      [ 3, 'a' ],
+      [ 1, 'b' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ],
+      [ 2, 'c' ] ]
+    >
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -11692,7 +13256,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line110">line 110</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line199">line 199</a>
     </li></ul></dd>
     
 
@@ -11869,7 +13433,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line233">line 233</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line338">line 338</a>
     </li></ul></dd>
     
 
@@ -11924,9 +13488,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl = new Tlist(0,'a',1,'b',2,'c')
+    tl.dict()
     ////
+    { '0': 'a', '1': 'b', '2': 'c' }
 
     //function
     var tl = [ [ 0, 'a' ], [ 0, 'b' ], [ 1, 'a' ], [ 1, 'b' ] ]
@@ -11951,7 +13517,7 @@
 
 
 <div class="description">
-    tl2kvl
+    tl2kvl 
 
 <pre>
 </pre>
@@ -12047,7 +13613,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line203">line 203</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line294">line 294</a>
     </li></ul></dd>
     
 
@@ -12102,8 +13668,10 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+     tl2.kvl()
+     [ [ '0', '1', '2' ], [ 'a', 'b', 'c' ] ]
     ////
 
     //function
@@ -12117,6 +13685,186 @@
     > vl
     [ 'a', 'b', 'a', 'b' ]
     ></code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="tl2l"><span class="type-signature"></span>tl2l<span class="signature">(tl)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    tl2l
+
+<pre>
+</pre>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>tl</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">tlist</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3896">line 3896</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    l - list
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>term
+
+    //prototype
+    var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.list()
+    ////
+    [ 0, 'a', 1, 'b', 2, 'c', 0, 'a', 1, 'b', 2, 'c' ]
+
+    //function
+    var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
+    tlist.tl2l(tl)
+    ////
+    > tlist.tl2l(tl)
+    [ 0, 'a', 1, 'b', 2, 'c', 0, 'a', 1, 'b', 2, 'c' ]</code></pre>
 
 
 
@@ -12256,7 +14004,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1951">line 1951</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3111">line 3111</a>
     </li></ul></dd>
     
 
@@ -12447,7 +14195,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2021">line 2021</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3181">line 3181</a>
     </li></ul></dd>
     
 
@@ -12648,7 +14396,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1986">line 1986</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3146">line 3146</a>
     </li></ul></dd>
     
 
@@ -12849,7 +14597,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2060">line 2060</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3220">line 3220</a>
     </li></ul></dd>
     
 
@@ -13053,7 +14801,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1806">line 1806</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2966">line 2966</a>
     </li></ul></dd>
     
 
@@ -13254,7 +15002,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1719">line 1719</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2879">line 2879</a>
     </li></ul></dd>
     
 
@@ -13309,7 +15057,7 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
+    //prototype
 
     ////
 
@@ -13455,7 +15203,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1777">line 1777</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2937">line 2937</a>
     </li></ul></dd>
     
 
@@ -13656,7 +15404,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1748">line 1748</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2908">line 2908</a>
     </li></ul></dd>
     
 
@@ -13857,7 +15605,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1893">line 1893</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3053">line 3053</a>
     </li></ul></dd>
     
 
@@ -14058,7 +15806,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1922">line 1922</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3082">line 3082</a>
     </li></ul></dd>
     
 
@@ -14259,7 +16007,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1835">line 1835</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2995">line 2995</a>
     </li></ul></dd>
     
 
@@ -14460,7 +16208,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1864">line 1864</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3024">line 3024</a>
     </li></ul></dd>
     
 
@@ -14635,7 +16383,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2268">line 2268</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3570">line 3570</a>
     </li></ul></dd>
     
 
@@ -14690,9 +16438,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl =  new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.uniqualizeAllK()
     ////
+    [[ 0, 'a' ], [ 1, 'b' ],[2, 'c']]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -14813,7 +16563,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2432">line 2432</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3793">line 3793</a>
     </li></ul></dd>
     
 
@@ -14868,9 +16618,12 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.uniqualizeAllKV()
+    tl
     ////
+    [ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ] ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -15017,7 +16770,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2349">line 2349</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3681">line 3681</a>
     </li></ul></dd>
     
 
@@ -15072,9 +16825,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.uniqualizeAllV()
     ////
+    [ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ] ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -15221,7 +16976,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2229">line 2229</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3517">line 3517</a>
     </li></ul></dd>
     
 
@@ -15276,9 +17031,11 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.uniqualizeK(1)
     ////
+    [ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ], [ 3, 'a' ], [ 2, 'c' ] ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -15450,7 +17207,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2391">line 2391</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3737">line 3737</a>
     </li></ul></dd>
     
 
@@ -15505,9 +17262,12 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.uniqualizeKV(0,'a')
+    tl
     ////
+    [ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ], [ 1, 'b' ], [ 2, 'c' ] ]
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -15654,7 +17414,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2308">line 2308</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3626">line 3626</a>
     </li></ul></dd>
     
 
@@ -15709,9 +17469,12 @@
     
     <pre class="prettyprint"><code>term
 
-     //prototype
-
+    //prototype
+    var tl =  new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl.uniqualizeV('a')
     ////
+    [ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ], [ 1, 'b' ], [ 2, 'c' ] ]
+
 
     //function
     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -15738,13 +17501,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#allIndexesOfK">allIndexesOfK</a></li><li><a href="global.html#allIndexesOfKV">allIndexesOfKV</a></li><li><a href="global.html#allIndexesOfV">allIndexesOfV</a></li><li><a href="global.html#countK">countK</a></li><li><a href="global.html#countKV">countKV</a></li><li><a href="global.html#countV">countV</a></li><li><a href="global.html#d2t">d2t</a></li><li><a href="global.html#d2tl">d2tl</a></li><li><a href="global.html#extend">extend</a></li><li><a href="global.html#firstIndexOfK">firstIndexOfK</a></li><li><a href="global.html#firstIndexOfKV">firstIndexOfKV</a></li><li><a href="global.html#firstIndexOfV">firstIndexOfV</a></li><li><a href="global.html#getAllK">getAllK</a></li><li><a href="global.html#getAllKV">getAllKV</a></li><li><a href="global.html#getAllV">getAllV</a></li><li><a href="global.html#getFirstK">getFirstK</a></li><li><a href="global.html#getFirstKV">getFirstKV</a></li><li><a href="global.html#getFirstV">getFirstV</a></li><li><a href="global.html#getK">getK</a></li><li><a href="global.html#getKV">getKV</a></li><li><a href="global.html#getLastK">getLastK</a></li><li><a href="global.html#getLastKV">getLastKV</a></li><li><a href="global.html#getLastV">getLastV</a></li><li><a href="global.html#getV">getV</a></li><li><a href="global.html#includesK">includesK</a></li><li><a href="global.html#includesKV">includesKV</a></li><li><a href="global.html#includesV">includesV</a></li><li><a href="global.html#insert">insert</a></li><li><a href="global.html#insertTl">insertTl</a></li><li><a href="global.html#isTlist">isTlist</a></li><li><a href="global.html#isTuple">isTuple</a></li><li><a href="global.html#kvl2tl">kvl2tl</a></li><li><a href="global.html#lastIndexOfK">lastIndexOfK</a></li><li><a href="global.html#lastIndexOfKV">lastIndexOfKV</a></li><li><a href="global.html#lastIndexOfV">lastIndexOfV</a></li><li><a href="global.html#prextend">prextend</a></li><li><a href="global.html#rmAllK">rmAllK</a></li><li><a href="global.html#rmAllKV">rmAllKV</a></li><li><a href="global.html#rmAllV">rmAllV</a></li><li><a href="global.html#rmFirstK">rmFirstK</a></li><li><a href="global.html#rmFirstKV">rmFirstKV</a></li><li><a href="global.html#rmFirstV">rmFirstV</a></li><li><a href="global.html#rmK">rmK</a></li><li><a href="global.html#rmKV">rmKV</a></li><li><a href="global.html#rmLastK">rmLastK</a></li><li><a href="global.html#rmLastKV">rmLastKV</a></li><li><a href="global.html#rmLastV">rmLastV</a></li><li><a href="global.html#rmV">rmV</a></li><li><a href="global.html#set">set</a></li><li><a href="global.html#setAll">setAll</a></li><li><a href="global.html#sortk">sortk</a></li><li><a href="global.html#sortkv">sortkv</a></li><li><a href="global.html#sortv">sortv</a></li><li><a href="global.html#sortvk">sortvk</a></li><li><a href="global.html#t2d">t2d</a></li><li><a href="global.html#tl2d">tl2d</a></li><li><a href="global.html#tl2kvl">tl2kvl</a></li><li><a href="global.html#tupleCmpK">tupleCmpK</a></li><li><a href="global.html#tupleCmpKV">tupleCmpKV</a></li><li><a href="global.html#tupleCmpV">tupleCmpV</a></li><li><a href="global.html#tupleCmpVK">tupleCmpVK</a></li><li><a href="global.html#tupleEq">tupleEq</a></li><li><a href="global.html#tupleEqK">tupleEqK</a></li><li><a href="global.html#tupleEqKV">tupleEqKV</a></li><li><a href="global.html#tupleEqV">tupleEqV</a></li><li><a href="global.html#tupleGtK">tupleGtK</a></li><li><a href="global.html#tupleGtV">tupleGtV</a></li><li><a href="global.html#tupleLtK">tupleLtK</a></li><li><a href="global.html#tupleLtV">tupleLtV</a></li><li><a href="global.html#uniqualizeAllK">uniqualizeAllK</a></li><li><a href="global.html#uniqualizeAllKV">uniqualizeAllKV</a></li><li><a href="global.html#uniqualizeAllV">uniqualizeAllV</a></li><li><a href="global.html#uniqualizeK">uniqualizeK</a></li><li><a href="global.html#uniqualizeKV">uniqualizeKV</a></li><li><a href="global.html#uniqualizeV">uniqualizeV</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="constructor_.html">constructor_</a></li></ul><h3>Global</h3><ul><li><a href="global.html#allIndexesOfK">allIndexesOfK</a></li><li><a href="global.html#allIndexesOfKV">allIndexesOfKV</a></li><li><a href="global.html#allIndexesOfV">allIndexesOfV</a></li><li><a href="global.html#append">append</a></li><li><a href="global.html#countK">countK</a></li><li><a href="global.html#countKV">countKV</a></li><li><a href="global.html#countV">countV</a></li><li><a href="global.html#d2t">d2t</a></li><li><a href="global.html#d2tl">d2tl</a></li><li><a href="global.html#extend">extend</a></li><li><a href="global.html#firstIndexOfK">firstIndexOfK</a></li><li><a href="global.html#firstIndexOfKV">firstIndexOfKV</a></li><li><a href="global.html#firstIndexOfV">firstIndexOfV</a></li><li><a href="global.html#getAllK">getAllK</a></li><li><a href="global.html#getAllKV">getAllKV</a></li><li><a href="global.html#getAllV">getAllV</a></li><li><a href="global.html#getFirstK">getFirstK</a></li><li><a href="global.html#getFirstKV">getFirstKV</a></li><li><a href="global.html#getFirstV">getFirstV</a></li><li><a href="global.html#getK">getK</a></li><li><a href="global.html#getKV">getKV</a></li><li><a href="global.html#getLastK">getLastK</a></li><li><a href="global.html#getLastKV">getLastKV</a></li><li><a href="global.html#getLastV">getLastV</a></li><li><a href="global.html#getV">getV</a></li><li><a href="global.html#includesK">includesK</a></li><li><a href="global.html#includesKV">includesKV</a></li><li><a href="global.html#includesV">includesV</a></li><li><a href="global.html#insert">insert</a></li><li><a href="global.html#insertTl">insertTl</a></li><li><a href="global.html#isTlist">isTlist</a></li><li><a href="global.html#isTuple">isTuple</a></li><li><a href="global.html#kvl2tl">kvl2tl</a></li><li><a href="global.html#l2tl">l2tl</a></li><li><a href="global.html#lastIndexOfK">lastIndexOfK</a></li><li><a href="global.html#lastIndexOfKV">lastIndexOfKV</a></li><li><a href="global.html#lastIndexOfV">lastIndexOfV</a></li><li><a href="global.html#prepend">prepend</a></li><li><a href="global.html#prextend">prextend</a></li><li><a href="global.html#rmAllK">rmAllK</a></li><li><a href="global.html#rmAllKV">rmAllKV</a></li><li><a href="global.html#rmAllV">rmAllV</a></li><li><a href="global.html#rmFirstK">rmFirstK</a></li><li><a href="global.html#rmFirstKV">rmFirstKV</a></li><li><a href="global.html#rmFirstV">rmFirstV</a></li><li><a href="global.html#rmK">rmK</a></li><li><a href="global.html#rmKV">rmKV</a></li><li><a href="global.html#rmLastK">rmLastK</a></li><li><a href="global.html#rmLastKV">rmLastKV</a></li><li><a href="global.html#rmLastV">rmLastV</a></li><li><a href="global.html#rmV">rmV</a></li><li><a href="global.html#set">set</a></li><li><a href="global.html#setAll">setAll</a></li><li><a href="global.html#setFirst">setFirst</a></li><li><a href="global.html#setLast">setLast</a></li><li><a href="global.html#sortk">sortk</a></li><li><a href="global.html#sortkv">sortkv</a></li><li><a href="global.html#sortv">sortv</a></li><li><a href="global.html#sortvk">sortvk</a></li><li><a href="global.html#t2d">t2d</a></li><li><a href="global.html#tl2d">tl2d</a></li><li><a href="global.html#tl2kvl">tl2kvl</a></li><li><a href="global.html#tl2l">tl2l</a></li><li><a href="global.html#tupleCmpK">tupleCmpK</a></li><li><a href="global.html#tupleCmpKV">tupleCmpKV</a></li><li><a href="global.html#tupleCmpV">tupleCmpV</a></li><li><a href="global.html#tupleCmpVK">tupleCmpVK</a></li><li><a href="global.html#tupleEq">tupleEq</a></li><li><a href="global.html#tupleEqK">tupleEqK</a></li><li><a href="global.html#tupleEqKV">tupleEqKV</a></li><li><a href="global.html#tupleEqV">tupleEqV</a></li><li><a href="global.html#tupleGtK">tupleGtK</a></li><li><a href="global.html#tupleGtV">tupleGtV</a></li><li><a href="global.html#tupleLtK">tupleLtK</a></li><li><a href="global.html#tupleLtV">tupleLtV</a></li><li><a href="global.html#uniqualizeAllK">uniqualizeAllK</a></li><li><a href="global.html#uniqualizeAllKV">uniqualizeAllKV</a></li><li><a href="global.html#uniqualizeAllV">uniqualizeAllV</a></li><li><a href="global.html#uniqualizeK">uniqualizeK</a></li><li><a href="global.html#uniqualizeKV">uniqualizeKV</a></li><li><a href="global.html#uniqualizeV">uniqualizeV</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Tue Sep 10 2019 08:44:51 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Thu Sep 12 2019 08:13:57 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>

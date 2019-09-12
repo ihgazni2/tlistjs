@@ -6,12 +6,19 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "keywords": ["tuple", "array", "list"],
+    "keywords": [
+        "tuple",
+        "array",
+        "list"
+    ],
     "author": "dli",
     "license": "MIT",
-    "files": ["doc/*", "dist/*"],
+    "files": [
+        "doc/*",
+        "dist/*"
+    ],
     "dependencies": {
-        "elist": ">1.4.13"
+        "elist": "^1.4.17"
     },
     "devDependencies": {
         "efdir": ">1.0.3",

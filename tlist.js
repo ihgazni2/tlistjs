@@ -1,6 +1,95 @@
 const elel = require("elist")
 
 /**
+ * Tlist
+ * @class
+ * 
+ * <pre>
+ * </pre>
+ *
+ * @example@
+ * term
+ *
+ *     //prototype
+ *     var tl0 = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl0
+ *     var tl1 = new Tlist(0,'a',1,'b',2,'c',0,'a',1,'b',2,'c')
+ *     tl1
+ *     var tl2 = new Tlist({
+ *         0:'a',
+ *         1:'b',
+ *         2:'c'
+ *     })
+ *     tl2
+ *     ////
+ *     > var tl0 = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     undefined
+ *     > tl0
+ *     Tlist [
+ *       [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ],
+ *       [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ] ]
+ *     > var tl1 = new Tlist(0,'a',1,'b',2,'c',0,'a',1,'b',2,'c')
+ *     undefined
+ *     > tl1
+ *     Tlist [
+ *       [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ],
+ *       [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ] ]
+ *     > var tl2 = new Tlist({
+ *     ...     0:'a',
+ *     ...     1:'b',
+ *     ...     2:'c'
+ *     ... })
+ *     undefined
+ *     > tl2
+ *     Tlist [ [ '0', 'a' ], [ '1', 'b' ], [ '2', 'c' ] ]
+ *     >
+ *
+ *     //function
+ *
+ *    ////
+ *
+ *
+ *
+ *
+ *
+ * @param {Object|Array} items - even_length_array or dict_object or tuple_array  
+ * @return {Array} tlist - tuple list
+ *
+ */
+
+function constructor_(items) {
+    if(isTlist(items)) {
+
+    } else if(items.length>1) {
+        items = l2tl(items)
+    } else if(Object.entries(items[0]).length>0) {
+        items = d2tl(items[0])
+    } else {
+        items = []
+    }
+    return(items)
+}
+
+
+class Tlist  extends Array {
+    constructor(...items) {
+        super(...constructor_(items))
+    }
+
+}
+
+
+
+
+/**
  * isTuple
  *
  * <pre>
@@ -172,7 +261,7 @@ function kvl2tl(kl,vl) {
 }
 
 /**
- * tl2kvl
+ * tl2kvl 
  *
  * <pre>
  * </pre>
@@ -180,8 +269,10 @@ function kvl2tl(kl,vl) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *      var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *      tl2.kvl()
+ *      [ [ '0', '1', '2' ], [ 'a', 'b', 'c' ] ]
  *     ////
  *
  *     //function
@@ -206,6 +297,18 @@ function tl2kvl(tl) {
     return([kl,vl])
 }
 
+function _kvl() {
+    return(tl2kvl(this).map((l)=>(Array.from(l))))
+}
+
+Object.defineProperty(Tlist.prototype, "kvl", {
+    value: _kvl,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * tl2d
  *
@@ -215,9 +318,11 @@ function tl2kvl(tl) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist(0,'a',1,'b',2,'c')
+ *     tl.dict()
  *     ////
+ *     { '0': 'a', '1': 'b', '2': 'c' }
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 0, 'b' ], [ 1, 'a' ], [ 1, 'b' ] ]
@@ -238,6 +343,18 @@ function tl2d(tl,priority) {
     }
     return(d)
 }
+
+function _dict(priority) {
+    return(tl2d(this,priority))
+}
+
+Object.defineProperty(Tlist.prototype, "dict", {
+    value: _dict,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
 
 /**
  * d2tl
@@ -277,8 +394,11 @@ function d2tl(d) {
  * term
  *
  *      //prototype
- *
+ *      var tl0 = new Tlist([ 0, 'a' ], [ 0, 'b' ])
+ *      var tl1 = new Tlist([ 1, 'a' ], [ 1, 'b' ])
+ *      tl0.extend(tl1)
  *     ////
+ *     Tlist [ [ 0, 'a' ], [ 0, 'b' ], [ 1, 'a' ], [ 1, 'b' ] ]
  *
  *     //function
  *     var tl0 = [ [ 0, 'a' ], [ 0, 'b' ] ]
@@ -297,6 +417,17 @@ function extend(tl0,tl1) {
     return(tl0.concat(tl1))
 }
 
+function _extend(tl) {
+    return(extend(this,tl))
+}
+
+Object.defineProperty(Tlist.prototype, "extend", {
+    value: _extend,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
 
 /**
  * preextend
@@ -307,9 +438,12 @@ function extend(tl0,tl1) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl0 = new Tlist([ 0, 'a' ], [ 0, 'b' ])
+ *     var tl1 = new Tlist([ 1, 'a' ], [ 1, 'b' ])
+ *     tl0.prextend(tl1)
  *     ////
+ *     Tlist [ [ 1, 'a' ], [ 1, 'b' ], [ 0, 'a' ], [ 0, 'b' ] ]
  *
  *     //function
  *     var tl0 = [ [ 0, 'a' ], [ 0, 'b' ] ]
@@ -328,6 +462,19 @@ function prextend(tl0,tl1) {
     return(tl1.concat(tl0))
 }
 
+function _prextend(tl) {
+    return(prextend(this,tl))
+}
+
+Object.defineProperty(Tlist.prototype, "prextend", {
+    value: _prextend,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
+
 /**
  * allIndexesOfK
  *
@@ -337,9 +484,18 @@ function prextend(tl0,tl1) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0,'a' ], [ 1,'b' ],[2,'c'], [ 0,'a' ], [ 1,'b' ],[2,'c'])
+ *     tl.allIndexesOfK(0)
+ *     tl[0]
+ *     tl[3]
  *     ////
+ *     > tl.allIndexesOfK(0)
+ *     [ 0, 3 ]
+ *     > tl[0]
+ *     [ 0, 'a' ]
+ *     > tl[3]
+ *     [ 0, 'a' ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -358,6 +514,18 @@ function allIndexesOfK(tl,key) {
     return(elel.allIndexesOf(kl,key))
 }
 
+function _allIndexesOfK(key) {
+    return(allIndexesOfK(this,key))
+}
+
+Object.defineProperty(Tlist.prototype, "allIndexesOfK", {
+    value: _allIndexesOfK,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * allIndexesOfV
  *
@@ -367,9 +535,18 @@ function allIndexesOfK(tl,key) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.allIndexesOfV('b')
+ *     tl[1]
+ *     tl[4]
  *     ////
+ *     > tl.allIndexesOfV('b')
+ *     [ 1, 4 ]
+ *     > tl[1]
+ *     [ 1, 'b' ]
+ *     > tl[4]
+ *     [ 1, 'b' ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -388,6 +565,19 @@ function allIndexesOfV(tl,value) {
     return(elel.allIndexesOf(vl,value))
 }
 
+
+function _allIndexesOfV(value) {
+    return(allIndexesOfV(this,value))
+}
+
+Object.defineProperty(Tlist.prototype, "allIndexesOfV", {
+    value: _allIndexesOfV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * allIndexesOfKV
  *
@@ -397,9 +587,18 @@ function allIndexesOfV(tl,value) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.allIndexesOfKV(2,'c')
+ *     tl[2]
+ *     tl[5]
  *     ////
+ *     > tl.allIndexesOfKV(2,'c')
+ *     [ 2, 5 ]
+ *     > tl[2]
+ *     [ 2, 'c' ]
+ *     > tl[5]
+ *     [ 2, 'c' ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -421,6 +620,19 @@ function allIndexesOfKV(tl,key,value) {
     return(elel.slctvIv(indexesK,(i,v,o)=>(v==o[i]),[indexesV]))
 }
 
+
+function _allIndexesOfKV(key,value) {
+    return(allIndexesOfKV(this,key,value))
+}
+
+Object.defineProperty(Tlist.prototype, "allIndexesOfKV", {
+    value: _allIndexesOfKV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * firstIndexOfK
  *
@@ -430,9 +642,11 @@ function allIndexesOfKV(tl,key,value) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.firstIndexOfK(1)
  *     ////
+ *     1
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -450,6 +664,20 @@ function firstIndexOfK(tl,key) {
     return(allIndexesOfK(tl,key)[0])
 }
 
+function _firstIndexOfK(key) {
+    return(firstIndexOfK(this,key))
+}
+
+Object.defineProperty(Tlist.prototype, "firstIndexOfK", {
+    value: _firstIndexOfK,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
+
+
 /**
  * firstIndexOfV
  *
@@ -459,13 +687,17 @@ function firstIndexOfK(tl,key) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.firstIndexOfV('b')
  *     ////
+ *     1
  *
  *     //function
- *
+ *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
+ *     firstIndexOfV(tl,'b')
  *     ////
+ *     1
  *     
  * @param {Array} tl - tlist
  * @param {String|Number} v - value
@@ -477,6 +709,19 @@ function firstIndexOfV(tl,value) {
     return(allIndexesOfV(tl,value)[0])
 }
 
+
+function _firstIndexOfV(value) {
+    return(firstIndexOfV(this,value))
+}
+
+Object.defineProperty(Tlist.prototype, "firstIndexOfV", {
+    value: _firstIndexOfV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * firstIndexOfKV
  *
@@ -486,10 +731,11 @@ function firstIndexOfV(tl,value) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.firstIndexOfKV(2,'c')
  *     ////
- *
+ *     2
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
  *     tlist.firstIndexOfKV(tl,2,'c')
@@ -508,6 +754,19 @@ function firstIndexOfKV(tl,key,value) {
     return(allIndexesOfKV(tl,key,value)[0])
 }
 
+function _firstIndexOfKV(key,value) {
+    return(firstIndexOfKV(this,key,value))
+}
+
+Object.defineProperty(Tlist.prototype, "firstIndexOfKV", {
+    value: _firstIndexOfKV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
+
 /**
  * lastIndexOfK
  *
@@ -517,9 +776,11 @@ function firstIndexOfKV(tl,key,value) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.lastIndexOfK(0)
  *     ////
+ *     3
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -538,6 +799,18 @@ function lastIndexOfK(tl,key) {
     return(allIndexesOfK(tl,key).last())
 }
 
+function _lastIndexOfK(key) {
+    return(lastIndexOfK(this,key))
+}
+
+Object.defineProperty(Tlist.prototype, "lastIndexOfK", {
+    value: _lastIndexOfK,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * lastIndexOfV
  *
@@ -547,14 +820,17 @@ function lastIndexOfK(tl,key) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.lastIndexOfV('b')
  *     ////
+ *     4
+ *
+ *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
  *     tlist.lastIndexOfV(tl,'b')
- *     //function
- *     4
  *     ////
+ *     4
  *
  * @param {Array} tl - tlist
  * @param {String|Number} v - value
@@ -566,6 +842,18 @@ function lastIndexOfV(tl,value) {
     return(allIndexesOfV(tl,value).last())
 }
 
+function _lastIndexOfV(value) {
+    return(lastIndexOfV(this,value))
+}
+
+Object.defineProperty(Tlist.prototype, "lastIndexOfV", {
+    value: _lastIndexOfV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * lastIndexOfKV
  *
@@ -575,9 +863,11 @@ function lastIndexOfV(tl,value) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.lastIndexOfKV(2,'c')
  *     ////
+ *     5
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -596,24 +886,59 @@ function lastIndexOfKV(tl,key,value) {
     return(allIndexesOfKV(tl,key,value).last())
 }
 
+function _lastIndexOfKV(key,value) {
+    return(lastIndexOfKV(this,key,value))
+}
+
+Object.defineProperty(Tlist.prototype, "lastIndexOfKV", {
+    value: _lastIndexOfKV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * insert
  *
  * <pre>
+ *     this method will change the original Tlist
  * </pre>
  *
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     //to avoid name conflict with prototype insert added by elist to Array
+ *     //insertOne
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.insertOne('k','v',2) 
  *     ////
+ *     > tl.insertOne('k','v',2)
+ *     Tlist [
+ *       [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 'k', 'v' ],
+ *       [ 2, 'c' ],
+ *       [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ] ]
+ *     > tl
+ *     Tlist [
+ *       [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 'k', 'v' ],
+ *       [ 2, 'c' ],
+ *       [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ] ]
+ *     >
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
- *     tlist.insert(tl,2,'k','v')
+ *     tlist.insert(tl,'k','v',2)
  *     ////
- *     > tlist.insert(tl,2,'k','v')
+ *     > tlist.insert(tl,'k','v',2)
  *     [ [ 0, 'a' ],
  *       [ 1, 'b' ],
  *       [ 'k', 'v' ],
@@ -622,37 +947,208 @@ function lastIndexOfKV(tl,key,value) {
  *       [ 1, 'b' ],
  *       [ 2, 'c' ] ]
  *
- *     @param {Array} tl - tlist
- *     @param {Number} position - index
- *     @param {String|Number} k - key
- *     @param {String|Number} v - value
+ * @param {Array} tl - tlist
+ * @param {String|Number} k - key
+ * @param {String|Number} v - value
+ * @param {Number} position - index
+ * @return {Array} tl - tlist
  */
 
-function insert(tl,position,key,value) {
+function insert(tl,key,value,position) {
     tl.insert([key,value],position)
     return(tl)
 }
 
+function insertOne(tl,key,value,position) {
+    tl.insert([key,value],position)
+    return(tl)
+}
+
+function _insert(key,value,position) {
+    return(insert(this,key,value,position))
+}
+
+Object.defineProperty(Tlist.prototype, "insertOne", {
+    value: _insert,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
- * insertTl
+ * append
  *
  * <pre>
+ *     this method will change the original Tlist
  * </pre>
  *
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.append('k','v')
  *     ////
+ *     > tl.append('k','v')
+ *     Tlist [
+ *       [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ],
+ *       [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ],
+ *       [ 'k', 'v' ]]
+ *     > tl
+ *     Tlist [
+ *       [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ],
+ *       [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ],
+ *       [ 'k', 'v' ]]
+ *     >
+ *
+ *     //function
+ *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
+ *     tlist.append(tl,'k','v')
+ *     ////
+ *     > tlist.append(tl,'k','v')
+ *     [ [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ],
+ *       [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ],
+ *       [ 'k', 'v' ]]
+ *
+ * @param {Array} tl - tlist
+ * @param {String|Number} k - key
+ * @param {String|Number} v - value
+ * @return {Array} tl - tlist
+ */
+
+function append(tl,key,value) {
+    return(insert(tl,key,value,tl.length-1))
+}
+
+function _append(key,value) {
+    return(append(this,key,value))
+}
+
+Object.defineProperty(Tlist.prototype, "append", {
+    value: _append,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+/**
+ * prepend
+ *
+ * <pre>
+ *     this method will change the original Tlist
+ * </pre>
+ *
+ * @example
+ * term
+ *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.prepend('k','v')
+ *     ////
+ *     > tl.prepend('k','v')
+ *     Tlist [
+ *       ['k', 'v'],
+ *       [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ],
+ *       [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ]]
+ *     > tl
+ *     Tlist [
+ *       ['k', 'v'],
+ *       [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ],
+ *       [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ]]
+ *     >
+ *
+ *     //function
+ *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
+ *     tlist.prepend(tl,'k','v')
+ *     ////
+ *     > tlist.prepend(tl,'k','v')
+ *     [ 
+ *       ['k', 'v'],
+ *       [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ],
+ *       [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ]]
+ *
+ * @param {Array} tl - tlist
+ * @param {String|Number} k - key
+ * @param {String|Number} v - value
+ * @return {Array} tl - tlist
+ */
+
+
+function prepend(tl,key,value) {
+    return(insert(tl,key,value,0))
+}
+
+function _prepend(key,value) {
+    return(prepend(this,key,value))
+}
+
+Object.defineProperty(Tlist.prototype, "prepend", {
+    value: _prepend,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
+/**
+ * insertTl
+ *
+ * <pre>
+ *     this method will change the original Tlist
+ * </pre>
+ *
+ * @example
+ * term
+ *
+ *     //prototype
+ *      var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *      var tl1 = new Tlist(['k','v'],['k','v'])
+ *      tl.insertTl(tl1,2)
+ *     ////
+ *     > tl.insertTl(tl1,2)
+ *     Tlist [
+ *       [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 'k', 'v' ],
+ *       [ 'k', 'v' ],
+ *       [ 2, 'c' ],
+ *       [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ] ]
+ *     >
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
  *     var tl1 = [ ['k','v'],['k','v']]
- *     tlist.insertTl(tl,2,tl1)
+ *     tlist.insertTl(tl,tl1,2)
  *     tl
  *     ////
- *     > tlist.insertTl(tl,2,tl1)
+ *     > tlist.insertTl(tl,tl1,2)
  *     [ [ 0, 'a' ],
  *       [ 1, 'b' ],
  *       [ 'k', 'v' ],
@@ -676,15 +1172,27 @@ function insert(tl,position,key,value) {
  *     >
  *
  * @param {Array} tl - tlist
- * @param {Number} position - index
  * @param {Array} tl1 - tlist
+ * @param {Number} position - index
  * @return {Array} tl - [t0,t1,...tk...,tn]
  */
 
-function insertTl(tl,position,tl1) {
+function insertTl(tl,tl1,position) {
     tl.insertArray(tl1,position)
     return(tl)
 }
+
+function _insertTl(tl1,position) {
+    return(insertTl(this,tl1,position))
+}
+
+Object.defineProperty(Tlist.prototype, "insertTl", {
+    value: _insertTl,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
 
 /**
  * includesK 
@@ -695,9 +1203,15 @@ function insertTl(tl,position,tl1) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.includesK(1)
+ *     tl.includesK(200)
  *     ////
+ *     > tl.includesK(1)
+ *     true
+ *     > tl.includesK(200)
+ *     false
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -718,6 +1232,18 @@ function includesK(tl,key) {
     return(allIndexesOfK(tl,key).length>0)
 }
 
+function _includesK(key) {
+    return(includesK(this,key))
+}
+
+Object.defineProperty(Tlist.prototype, "includesK", {
+    value: _includesK,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * includesV
  *
@@ -727,9 +1253,15 @@ function includesK(tl,key) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.includesV('b')
+ *     tl.includesV('e')
  *     ////
+ *     >tl.includesV('b')
+ *     true
+ *     >tl.includesV('e')
+ *     false
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -750,6 +1282,19 @@ function includesV(tl,value) {
     return(allIndexesOfV(tl,value).length>0)
 }
 
+function _includesV(value) {
+    return(includesV(this,value))
+}
+
+Object.defineProperty(Tlist.prototype, "includesV", {
+    value: _includesV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
+
 /**
  * includesKV
  *
@@ -759,9 +1304,15 @@ function includesV(tl,value) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.includesKV(0,'a')
+ *     tl.includesKV(0,'c')
  *     ////
+ *     >tl.includesKV(0,'a')
+ *     true
+ *     >tl.includesKV(0,'c')
+ *     false
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -784,6 +1335,19 @@ function includesKV(tl,key,value) {
     return(allIndexesOfKV(tl,key,value).length>0)
 }
 
+function _includesKV(key,value) {
+    return(includesKV(this,key,value))
+}
+
+Object.defineProperty(Tlist.prototype, "includesKV", {
+    value: _includesKV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
+
 /**
  * countK
  *
@@ -793,9 +1357,11 @@ function includesKV(tl,key,value) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.countK(1)
  *     ////
+ *     2
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -813,6 +1379,18 @@ function countK(tl,key) {
     return(allIndexesOfK(tl,key).length)
 }
 
+function _countK(key) {
+    return(countK(this,key))
+}
+
+Object.defineProperty(Tlist.prototype, "countK", {
+    value: _countK,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * countV
  *
@@ -822,9 +1400,11 @@ function countK(tl,key) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.countV('c')
  *     ////
+ *     2
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -843,6 +1423,18 @@ function countV(tl,value) {
     return(allIndexesOfV(tl,value).length)
 }
 
+function _countV(value) {
+    return(countV(this,value))
+}
+
+Object.defineProperty(Tlist.prototype, "countV", {
+    value: _countV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * countKV
  *
@@ -852,9 +1444,11 @@ function countV(tl,value) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl =  new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.countKV(2,'c')
  *     ////
+ *     2
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -874,6 +1468,18 @@ function countKV(tl,key,value) {
     return(allIndexesOfKV(tl,key,value).length)
 }
 
+function _countKV(key,value) {
+    return(countKV(this,key,value))
+}
+
+Object.defineProperty(Tlist.prototype, "countKV", {
+    value: _countKV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * rmK
  *
@@ -883,9 +1489,17 @@ function countKV(tl,key,value) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     var tl1 = tl.rmK(1,1)
+ *     tl1
+ *     var tl2 = tl.rmK(1,0)
+ *     tl2
  *     ////
+ *     >tl1
+ *     Tlist [ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ], [ 0, 'a' ], [ 2, 'c' ] ]
+ *     >tl2
+ *     Tlist [ [ 0, 'a' ], [ 2, 'c' ], [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ] ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -906,6 +1520,18 @@ function rmK(tl,key,which) {
     return(tl.seqsNot([index]))
 }
 
+function _rmK(key,which) {
+    return(rmK(this,key,which))
+}
+
+Object.defineProperty(Tlist.prototype, "rmK", {
+    value: _rmK,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * rmV
  *
@@ -915,9 +1541,17 @@ function rmK(tl,key,which) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     var tl1 = tl.rmV('a',1)
+ *     tl1
+ *     var tl2 = tl.rmV('a',0)
+ *     tl2
  *     ////
+ *     > tl1
+ *     Tlist [ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ], [ 1, 'b' ], [ 2, 'c' ] ]
+ *     > tl2
+ *     Tlist [ [ 1, 'b' ], [ 2, 'c' ], [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ] ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -937,6 +1571,18 @@ function rmV(tl,value,which) {
     return(tl.seqsNot([index]))
 }
 
+function _rmV(value,which) {
+    return(rmV(this,value,which))
+}
+
+Object.defineProperty(Tlist.prototype, "rmV", {
+    value: _rmV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * rmKV
  *
@@ -946,9 +1592,18 @@ function rmV(tl,value,which) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     var tl1 = tl.rmKV(1,'b',1)
+ *     tl1
+ *     var tl2 = tl.rmKV(1,'b',0)
+ *     tl2
  *     ////
+ *     >tl1
+ *     Tlist [ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ], [ 0, 'a' ], [ 2, 'c' ] ]
+ *     >tl2
+ *     Tlist [ [ 0, 'a' ], [ 2, 'c' ], [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ] ]
+ *
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -969,6 +1624,19 @@ function rmKV(tl,key,value,which) {
     return(tl.seqsNot([index]))
 }
 
+function _rmKV(key,value,which) {
+    return(rmKV(this,key,value,which))
+}
+
+Object.defineProperty(Tlist.prototype, "rmKV", {
+    value: _rmKV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
+
 /**
  * rmFirstK
  *
@@ -978,9 +1646,11 @@ function rmKV(tl,key,value,which) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.rmFirstK(1)
  *     ////
+ *     Tlist [ [ 0, 'a' ], [ 2, 'c' ], [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ] ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -999,6 +1669,18 @@ function rmFirstK(tl,key) {
     return(rmK(tl,key,0))
 }
 
+function _rmFirstK(key) {
+    return(rmFirstK(this,key))
+}
+
+Object.defineProperty(Tlist.prototype, "rmFirstK", {
+    value: _rmFirstK,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * rmFirstV
  *
@@ -1008,9 +1690,11 @@ function rmFirstK(tl,key) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.rmFirstV('b')
  *     ////
+ *     Tlist [ [ 0, 'a' ], [ 2, 'c' ], [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ] ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -1027,6 +1711,17 @@ function rmFirstV(tl,value) {
     return(rmV(tl,value,0))
 }
 
+function _rmFirstV(value) {
+    return(rmFirstV(this,value))
+}
+
+Object.defineProperty(Tlist.prototype, "rmFirstV", {
+    value: _rmFirstV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
 /**
  * rmFirstKV
  *
@@ -1036,9 +1731,11 @@ function rmFirstV(tl,value) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.rmFirstKV(2,'c')
  *     ////
+ *     Tlist [ [ 0, 'a' ], [ 1, 'b' ], [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ] ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -1056,6 +1753,19 @@ function rmFirstKV(tl,key,value) {
     return(rmKV(tl,key,value,0))
 }
 
+function _rmFirstKV(key,value) {
+    return(rmFirstKV(this,key,value))
+}
+
+Object.defineProperty(Tlist.prototype, "rmFirstKV", {
+    value: _rmFirstKV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
+
 /**
  * rmLastK
  *
@@ -1065,9 +1775,11 @@ function rmFirstKV(tl,key,value) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.rmLastK(1)
  *     ////
+ *     Tlist [ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ], [ 0, 'a' ], [ 2, 'c' ] ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -1085,6 +1797,18 @@ function rmLastK(tl,key) {
     return(rmK(tl,key,which))
 }
 
+function _rmLastK(key) {
+    return(rmLastK(this,key))
+}
+
+Object.defineProperty(Tlist.prototype, "rmLastK", {
+    value: _rmLastK,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * rmLastV
  *
@@ -1094,9 +1818,12 @@ function rmLastK(tl,key) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.rmLastV('c')
  *     ////
+ *     Tlist [ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ], [ 0, 'a' ], [ 1, 'b' ] ]
+ *
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -1115,6 +1842,17 @@ function rmLastV(tl,value) {
     return(rmV(tl,value,which))
 }
 
+function _rmLastV(value) {
+    return(rmLastV(this,value))
+}
+
+Object.defineProperty(Tlist.prototype, "rmLastV", {
+    value: _rmLastV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
 /**
  * rmLastKV
  *
@@ -1124,9 +1862,11 @@ function rmLastV(tl,value) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.rmLastKV(2,'c')
  *     ////
+ *     Tlist [ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ], [ 0, 'a' ], [ 1, 'b' ] ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -1145,6 +1885,18 @@ function rmLastKV(tl,key,value) {
     return(rmKV(tl,key,value,which))
 }
 
+function _rmLastKV(key,value) {
+    return(rmLastKV(this,key,value))
+}
+
+Object.defineProperty(Tlist.prototype, "rmLastKV", {
+    value: _rmLastKV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * rmAllK
  *
@@ -1154,9 +1906,11 @@ function rmLastKV(tl,key,value) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.rmAllK(2)
  *     ////
+ *     Tlist [ [ 0, 'a' ], [ 1, 'b' ], [ 0, 'a' ], [ 1, 'b' ] ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -1175,6 +1929,18 @@ function rmAllK(tl,key) {
     return(tl.seqsNot(indexes))
 }
 
+function _rmAllK(key) {
+    return(rmAllK(this,key))
+}
+
+Object.defineProperty(Tlist.prototype, "rmAllK", {
+    value: _rmAllK,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * rmAllV
  *
@@ -1184,9 +1950,11 @@ function rmAllK(tl,key) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl =  new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.rmAllV('a')
  *     ////
+ *     Tlist [ [ 1, 'b' ], [ 2, 'c' ], [ 1, 'b' ], [ 2, 'c' ] ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -1205,6 +1973,18 @@ function rmAllV(tl,value) {
     return(tl.seqsNot(indexes))
 }
 
+function _rmAllV(value) {
+    return(rmAllV(this,value))
+}
+
+Object.defineProperty(Tlist.prototype, "rmAllV", {
+    value: _rmAllV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * rmAllKV
  *
@@ -1214,9 +1994,11 @@ function rmAllV(tl,value) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.rmAllKV(1,'b')
  *     ////
+ *     Tlist [ [ 0, 'a' ], [ 2, 'c' ], [ 0, 'a' ], [ 2, 'c' ] ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -1235,6 +2017,19 @@ function rmAllKV(tl,key,value) {
     return(tl.seqsNot(indexes))
 }
 
+function _rmAllKV(key,value) {
+    return(rmAllKV(this,key,value))
+}
+
+Object.defineProperty(Tlist.prototype, "rmAllKV", {
+    value: _rmAllKV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
+
 /**
  * getK
  *
@@ -1244,9 +2039,15 @@ function rmAllKV(tl,key,value) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 11, 'b' ],[2,'d'])
+ *     tl.getK(2,0)
+ *     tl.getK(2,1)
  *     ////
+ *     > tl.getK(2,0)
+ *     [ 2, 'c' ]
+ *     > tl.getK(2,1)
+ *     [ 2, 'd' ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 11, 'b' ],[2,'d'] ]
@@ -1266,6 +2067,18 @@ function getK(tl,key,which) {
     return(tl.seqs([index])[0])
 }
 
+function _getK(key,which) {
+    return(getK(this,key,which))
+}
+
+Object.defineProperty(Tlist.prototype, "getK", {
+    value: _getK,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * getV
  *
@@ -1275,9 +2088,15 @@ function getK(tl,key,which) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 11, 'b' ],[2,'d'])
+ *     tl.getV('b',0)
+ *     tl.getV('b',1)
  *     ////
+ *     > tl.getV('b',0)
+ *     [ 1, 'b' ]
+ *     > tl.getV('b',1)
+ *     [ 11, 'b' ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 11, 'b' ],[2,'d'] ]
@@ -1297,6 +2116,18 @@ function getV(tl,value,which) {
     return(tl.seqs([index])[0])
 }
 
+function _getV(value,which) {
+    return(getV(this,value,which))
+}
+
+Object.defineProperty(Tlist.prototype, "getV", {
+    value: _getV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * getKV
  *
@@ -1306,9 +2137,12 @@ function getV(tl,value,which) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.getKV(tl,1,'b',1)
  *     ////
+ *     > tl.getKV(1,'b',0)
+ *     [ 1, 'b' ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -1329,6 +2163,18 @@ function getKV(tl,key,value,which) {
     return(tl.seqs([index])[0])
 }
 
+function _getKV(key,value,which) {
+    return(getKV(this,key,value,which))
+}
+
+Object.defineProperty(Tlist.prototype, "getKV", {
+    value: _getKV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * getFirstK
  *
@@ -1338,9 +2184,12 @@ function getKV(tl,key,value,which) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'d'])
+ *     tl.getFirstK(2)
  *     ////
+ *     [ 2, 'c' ]
+ *
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'d'] ]
@@ -1357,6 +2206,18 @@ function getFirstK(tl,key) {
     return(getK(tl,key,0))
 }
 
+function _getFirstK(key) {
+    return(getFirstK(this,key))
+}
+
+Object.defineProperty(Tlist.prototype, "getFirstK", {
+    value: _getFirstK,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * getFirstV
  *
@@ -1366,9 +2227,11 @@ function getFirstK(tl,key) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'d'])
+ *     tl.getFirstV('a')
  *     ////
+ *     [ 0, 'a' ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -1382,8 +2245,20 @@ function getFirstK(tl,key) {
  */
 
 function getFirstV(tl,value) {
-    return(getV(tl,value,0)[0])
+    return(getV(tl,value,0))
 }
+
+function _getFirstV(value) {
+    return(getFirstV(this,value))
+}
+
+Object.defineProperty(Tlist.prototype, "getFirstV", {
+    value: _getFirstV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
 
 /**
  * getFirstKV
@@ -1394,9 +2269,11 @@ function getFirstV(tl,value) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.getFirstKV(0,'a')
  *     ////
+ *     [ 0, 'a' ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -1411,8 +2288,20 @@ function getFirstV(tl,value) {
  */
 
 function getFirstKV(tl,key,value) {
-    return(getKV(tl,key,value,0)[0])
+    return(getKV(tl,key,value,0))
 }
+
+function _getFirstKV(key,value) {
+    return(getFirstKV(this,key,value))
+}
+
+Object.defineProperty(Tlist.prototype, "getFirstKV", {
+    value: _getFirstKV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
 
 /**
  * getLastK
@@ -1423,9 +2312,11 @@ function getFirstKV(tl,key,value) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'d'])
+ *     tl.getLastK(2)
  *     ////
+ *     [ 2, 'd' ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'d'] ]
@@ -1440,8 +2331,20 @@ function getFirstKV(tl,key,value) {
 
 function getLastK(tl,key) {
     let which = allIndexesOfK(tl,key).length - 1
-    return(getK(tl,key,which)[0])
+    return(getK(tl,key,which))
 }
+
+function _getLastK(key) {
+    return(getLastK(this,key))
+}
+
+Object.defineProperty(Tlist.prototype, "getLastK", {
+    value: _getLastK,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
 
 /**
  * getLastV
@@ -1452,9 +2355,11 @@ function getLastK(tl,key) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'d'])
+ *     tl.getLastV('a')
  *     ////
+ *     [ 3, 'a' ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'d'] ]
@@ -1469,8 +2374,20 @@ function getLastK(tl,key) {
 
 function getLastV(tl,value) {
     let which = allIndexesOfV(tl,value).length - 1
-    return(getV(tl,value,which)[0])
+    return(getV(tl,value,which))
 }
+
+function _getLastV(value) {
+    return(getLastV(this,value))
+}
+
+Object.defineProperty(Tlist.prototype, "getLastV", {
+    value: _getLastV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
 
 /**
  * getLastKV
@@ -1481,9 +2398,11 @@ function getLastV(tl,value) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'d'])
+ *     tl.getLastKV(2,'c')
  *     ////
+ *     [ 2, 'c']
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -1500,8 +2419,20 @@ function getLastV(tl,value) {
 
 function getLastKV(tl,key,value) {
     let which = allIndexesOfKV(tl,key,value).length - 1
-    return(getKV(tl,key,value,which)[0])
+    return(getKV(tl,key,value,which))
 }
+
+function _getLastKV(key,value) {
+    return(getLastKV(this,key,value))
+}
+
+Object.defineProperty(Tlist.prototype, "getLastKV", {
+    value: _getLastKV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
 
 /**
  * getAllK
@@ -1512,9 +2443,11 @@ function getLastKV(tl,key,value) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'d'])
+ *     tl.getAllK(2)
  *     ////
+ *     Tlist [ [ 2, 'c' ], [ 2, 'd' ] ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'d'] ]
@@ -1532,6 +2465,19 @@ function getAllK(tl,key) {
     return(tl.seqs(indexes))
 }
 
+function _getAllK(key) {
+    return(getAllK(this,key))
+}
+
+Object.defineProperty(Tlist.prototype, "getAllK", {
+    value: _getAllK,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
+
 /**
  * getAllV
  *
@@ -1541,9 +2487,11 @@ function getAllK(tl,key) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'d'])
+ *     tl.getAllV('a')
  *     ////
+ *     Tlist [ [ 0, 'a' ], [ 3, 'a' ] ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 11, 'b' ],[2,'c'] ]
@@ -1561,6 +2509,18 @@ function getAllV(tl,value) {
     return(tl.seqs(indexes))
 }
 
+function _getAllV(value) {
+    return(getAllV(this,value))
+}
+
+Object.defineProperty(Tlist.prototype, "getAllV", {
+    value: _getAllV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * getAllKV
  *
@@ -1570,9 +2530,11 @@ function getAllV(tl,value) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'d'])
+ *     tlist.getAllKV(1,'b')
  *     ////
+ *     [ [ 1, 'b' ], [ 1, 'b' ] ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -1592,6 +2554,18 @@ function getAllKV(tl,key,value) {
     return(tl.seqs(indexes))
 }
 
+function _getAllKV(key,value) {
+    return(getAllKV(this,key,value))
+}
+
+Object.defineProperty(Tlist.prototype, "getAllKV", {
+    value: _getAllKV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * set
  *
@@ -1601,9 +2575,30 @@ function getAllKV(tl,key,value) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 'k', 'b' ],[2, 'c'], [ 3, 'a' ], [ 'k', 'b' ],[2,'c'])
+ *     tl.set('k','vv',1)
+ *     tl.set('k','vvv',0)
  *     ////
+ *     > tl.set('k','vv',1)
+ *     Tlist [
+ *       [ 0, 'a' ],
+ *       [ 'k', 'b' ],
+ *       [ 2, 'c' ],
+ *       [ 3, 'a' ],
+ *       [ 'k', 'vv' ],
+ *       [ 2, 'c' ] ]
+ *     >
+ *     > tl.set('k','vvv',0)
+ *     Tlist [
+ *       [ 0, 'a' ],
+ *       [ 'k', 'vvv' ],
+ *       [ 2, 'c' ],
+ *       [ 3, 'a' ],
+ *       [ 'k', 'vv' ],
+ *       [ 2, 'c' ] ]
+ *     >
+ *
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 'k', 'b' ],[2, 'c'], [ 3, 'a' ], [ 'k', 'b' ],[2,'c'] ]
@@ -1640,6 +2635,149 @@ function set(tl,key,value,which) {
     return(tl)
 }
 
+function _set(key,value,which) {
+    return(set(this,key,value,which))
+}
+
+Object.defineProperty(Tlist.prototype, "set", {
+    value: _set,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
+/**
+ * setFirst
+ *
+ * <pre>
+ * </pre>
+ *
+ * @example
+ * term
+ *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 'k', 'b' ],[2, 'c'], [ 3, 'a' ], [ 'k', 'b' ],[2,'c'])
+ *     tl.setFirst('k','vv')
+ *     ////
+ *     > tl.setFirst('k','vv')
+ *     Tlist [
+ *       [ 0, 'a' ],
+ *       [ 'k', 'vv' ],
+ *       [ 2, 'c' ],
+ *       [ 3, 'a' ],
+ *       [ 'k', 'b' ],
+ *       [ 2, 'c' ] ]
+ *     >
+ *
+ *     //function
+ *     var tl = [ [ 0, 'a' ], [ 'k', 'b' ],[2, 'c'], [ 3, 'a' ], [ 'k', 'b' ],[2,'c'] ]
+ *     tlist.setFirst(tl,'k','vv')
+ *     tl
+ *     ////
+ *     > tlist.setFirst(tl,'k','vv')
+ *     [ [ 0, 'a' ],
+ *       [ 'k', 'vv' ],
+ *       [ 2, 'c' ],
+ *       [ 3, 'a' ],
+ *       [ 'k', 'b' ],
+ *       [ 2, 'c' ] ]
+ *     > tl
+ *     [ [ 0, 'a' ],
+ *       [ 'k', 'vv' ],
+ *       [ 2, 'c' ],
+ *       [ 3, 'a' ],
+ *       [ 'k', 'b' ],
+ *       [ 2, 'c' ] ]
+ *     >
+ *
+ * @param {Array} tl - tlist
+ * @param {String|Number} k - key
+ * @param {String|Number} v - value
+ * @param {Number} which - index
+ * @return {Array} tl - [t0,t1,...tk...,tn]
+ */
+
+function setFirst(tl,key,value) {
+    return(set(tl,key,value,0))
+}
+
+function _setFirst(key,value) {
+    return(setFirst(this,key,value))
+}
+
+Object.defineProperty(Tlist.prototype, "setFirst", {
+    value: _setFirst,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
+/**
+ * setLast
+ *
+ * <pre>
+ * </pre>
+ *
+ * @example
+ * term
+ *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 'k', 'b' ],[2, 'c'], [ 3, 'a' ], [ 'k', 'b' ],[2,'c'])
+ *     tl.setLast('k','vv')
+ *     ////
+ *     [ [ 0, 'a' ],
+ *       [ 'k', 'b' ],
+ *       [ 2, 'c' ],
+ *       [ 3, 'a' ],
+ *       [ 'k', 'vv' ],
+ *       [ 2, 'c' ] ]
+ *
+ *     //function
+ *     var tl = [ [ 0, 'a' ], [ 'k', 'b' ],[2, 'c'], [ 3, 'a' ], [ 'k', 'b' ],[2,'c'] ]
+ *     tlist.setLast(tl,'k','vv')
+ *     tl
+ *     ////
+ *     > tlist.setLast(tl,'k','vv')
+ *     [ [ 0, 'a' ],
+ *       [ 'k', 'b' ],
+ *       [ 2, 'c' ],
+ *       [ 3, 'a' ],
+ *       [ 'k', 'vv' ],
+ *       [ 2, 'c' ] ]
+ *     > tl
+ *     [ [ 0, 'a' ],
+ *       [ 'k', 'b' ],
+ *       [ 2, 'c' ],
+ *       [ 3, 'a' ],
+ *       [ 'k', 'vv' ],
+ *       [ 2, 'c' ] ]
+ *     >
+ *
+ * @param {Array} tl - tlist
+ * @param {String|Number} k - key
+ * @param {String|Number} v - value
+ * @param {Number} which - index
+ * @return {Array} tl - [t0,t1,...tk...,tn]
+ */
+
+function setLast(tl,key,value) {
+    return(set(tl,key,value,tl.length-1))
+}
+
+function _setLast(key,value) {
+    return(setLast(this,key,value))
+}
+
+Object.defineProperty(Tlist.prototype, "setLast", {
+    value: _setLast,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * setAll
  *
@@ -1649,9 +2787,19 @@ function set(tl,key,value,which) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 'k', 'b' ],[2, 'c'], [ 3, 'a' ], [ 'k', 'b' ],[2,'c'])
+ *     tl.setAll('k','vv')
  *     ////
+ *     > tl.setAll('k','vv')
+ *     Tlist [
+ *       [ 0, 'a' ],
+ *       [ 'k', 'vv' ],
+ *       [ 2, 'c' ],
+ *       [ 3, 'a' ],
+ *       [ 'k', 'vv' ],
+ *       [ 2, 'c' ] ]
+ *     >
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -1690,6 +2838,18 @@ function setAll(tl,key,value) {
     return(tl)
 }
 
+function _setAll(key,value) {
+    return(setAll(this,key,value))
+}
+
+Object.defineProperty(Tlist.prototype, "setAll", {
+    value: _setAll,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * tupleEqK
  *
@@ -1702,7 +2862,7 @@ function setAll(tl,key,value) {
  * @example
  * term
  *
- *      //prototype
+ *     //prototype
  *
  *     ////
  *
@@ -2071,14 +3231,26 @@ function tupleCmpVK(t0,t1) {
  * sortk
  *
  * <pre>
+ *     this will change the original Tlist
  * </pre>
  *
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.sortk()
+ *     tl
  *     ////
+ *     > tl.sortk()
+ *     Tlist [
+ *       [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ],
+ *       [ 2, 'c' ],
+ *       [ 3, 'a' ] ]
+ *     >
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -2101,18 +3273,50 @@ function sortk(tl) {
     return(tl)
 }
 
+function _sortk() {
+    return(sortk(this))
+}
+
+Object.defineProperty(Tlist.prototype, "sortk", {
+    value: _sortk,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
 /**
  * sortv
  *
  * <pre>
+ *     this will change the original Tlist
  * </pre>
  *
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.sortv()
+ *     tl
  *     ////
+ *     > tl.sortv()
+ *     Tlist [
+ *       [ 0, 'a' ],
+ *       [ 3, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ],
+ *       [ 2, 'c' ] ]
+ *     >
+ *     > tl
+ *     Tlist [
+ *       [ 0, 'a' ],
+ *       [ 3, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ],
+ *       [ 2, 'c' ] ]
+ *     >
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -2135,18 +3339,54 @@ function sortv(tl) {
     return(tl)
 }
 
+function _sortv() {
+    return(sortv(this))
+}
+
+Object.defineProperty(Tlist.prototype, "sortv", {
+    value: _sortv,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
+
 /**
  * sortkv
  *
  * <pre>
+ *     this will change the original Tlist
+ *     sort will first compare key, and then compare value
  * </pre>
  *
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.sortkv()
+ *     tl
  *     ////
+ *     > tl.sortkv()
+ *     Tlist [
+ *       [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ],
+ *       [ 2, 'c' ],
+ *       [ 3, 'a' ] ]
+ *     >
+ *     > tl
+ *     Tlist [
+ *       [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ],
+ *       [ 2, 'c' ],
+ *       [ 3, 'a' ] ]
+ *     >
+ *
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -2169,18 +3409,52 @@ function sortkv(tl) {
     return(tl)
 }
 
+function _sortkv() {
+    return(sortkv(this))
+}
+
+Object.defineProperty(Tlist.prototype, "sortkv", {
+    value: _sortkv,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
+
 /**
  * sortvk
  *
  * <pre>
+ *     this will change the original Tlist
+ *     sort will first compare value, and then compare key
  * </pre>
  *
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.sortvk()
+ *     tl
  *     ////
+ *     > tl.sortvk()
+ *     Tlist [
+ *       [ 0, 'a' ],
+ *       [ 3, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ],
+ *       [ 2, 'c' ] ]
+ *     > tl
+ *     Tlist [
+ *       [ 0, 'a' ],
+ *       [ 3, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ],
+ *       [ 2, 'c' ] ]
+ *     >
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -2202,6 +3476,18 @@ function sortvk(tl) {
     return(tl)
 }
 
+function _sortvk() {
+    return(sortvk(this))
+}
+
+Object.defineProperty(Tlist.prototype, "sortvk", {
+    value: _sortvk,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * uniqualizeK
  *
@@ -2211,9 +3497,11 @@ function sortvk(tl) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.uniqualizeK(1)
  *     ////
+ *     [ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ], [ 3, 'a' ], [ 2, 'c' ] ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -2241,6 +3529,18 @@ function uniqualizeK(tl,key) {
     return(ntl)
 }
 
+function _uniqualizeK(key) {
+    return(uniqualizeK(this,key))
+}
+
+Object.defineProperty(Tlist.prototype, "uniqualizeK", {
+    value: _uniqualizeK,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * uniqualizeAllK
  *
@@ -2250,9 +3550,11 @@ function uniqualizeK(tl,key) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl =  new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.uniqualizeAllK()
  *     ////
+ *     [[ 0, 'a' ], [ 1, 'b' ],[2, 'c']]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -2280,6 +3582,19 @@ function uniqualizeAllK(tl) {
     return(ntl)
 }
 
+function _uniqualizeAllK() {
+    return(uniqualizeAllK(this))
+}
+
+Object.defineProperty(Tlist.prototype, "uniqualizeAllK", {
+    value: _uniqualizeAllK,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
+
 /**
  * uniqualizeV
  *
@@ -2289,9 +3604,12 @@ function uniqualizeAllK(tl) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl =  new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.uniqualizeV('a')
  *     ////
+ *     [ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ], [ 1, 'b' ], [ 2, 'c' ] ]
+ *
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -2321,6 +3639,18 @@ function uniqualizeV(tl,value) {
     return(ntl)
 }
 
+function _uniqualizeV(value) {
+    return(uniqualizeV(this,value))
+}
+
+Object.defineProperty(Tlist.prototype, "uniqualizeV", {
+    value: _uniqualizeV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * uniqualizeAllV
  *
@@ -2330,9 +3660,11 @@ function uniqualizeV(tl,value) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.uniqualizeAllV()
  *     ////
+ *     [ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ] ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 3, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -2362,6 +3694,17 @@ function uniqualizeAllV(tl) {
     return(ntl)
 }
 
+function _uniqualizeAllV() {
+    return(uniqualizeAllV(this))
+}
+
+Object.defineProperty(Tlist.prototype, "uniqualizeAllV", {
+    value: _uniqualizeAllV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
 /**
  * uniqualizeKV
  *
@@ -2371,9 +3714,12 @@ function uniqualizeAllV(tl) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.uniqualizeKV(0,'a')
+ *     tl
  *     ////
+ *     [ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ], [ 1, 'b' ], [ 2, 'c' ] ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -2404,6 +3750,18 @@ function uniqualizeKV(tl,key,value) {
     return(ntl)
 }
 
+function _uniqualizeKV(key,value) {
+    return(uniqualizeKV(this,key,value))
+}
+
+Object.defineProperty(Tlist.prototype, "uniqualizeKV", {
+    value: _uniqualizeKV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * uniqualizeAllKV
  *
@@ -2413,9 +3771,12 @@ function uniqualizeKV(tl,key,value) {
  * @example
  * term
  *
- *      //prototype
- *
+ *     //prototype
+ *     var tl =  new  Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.uniqualizeAllKV()
+ *     tl
  *     ////
+ *     [ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'c' ] ]
  *
  *     //function
  *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
@@ -2445,17 +3806,114 @@ function uniqualizeAllKV(tl) {
     return(ntl)
 }
 
-
-
-class Tlist  extends Array {
-    constructor(...items) {
-        super(items);
-    }
-    
+function _uniqualizeAllKV() {
+    return(uniqualizeAllKV(tl))
 }
+
+Object.defineProperty(Tlist.prototype, "uniqualizeAllKV", {
+    value: _uniqualizeAllKV,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
+
+
+/**
+ * l2tl
+ *
+ * <pre>
+ * </pre>
+ *
+ * @example
+ * term
+ *
+ *      //prototype
+ *
+ *     ////
+ *
+ *     //function
+ *     var l = [ 0, 'a', 1, 'b', 2, 'c', 0, 'a', 1, 'b', 2, 'c' ]
+ *     tlist.l2tl(l)
+ *     ////
+ *     > tlist.l2tl(l)
+ *     [ [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ],
+ *       [ 0, 'a' ],
+ *       [ 1, 'b' ],
+ *       [ 2, 'c' ] ]
+ *     >
+ *
+ * @param {Array} l - list
+ * @return {Array} tl - [t0,t1,...tk...,tn]
+ */
+
+
+function l2tl(l) {
+    if(l.length % 2 == 1) {
+        l = l.slice(0,l.length-1)
+    } else {
+
+    }
+    if(l.length <2) {
+        return([])
+    } else {
+        let kl = l.evens()
+        let vl = l.odds()
+        return(kvl2tl(kl,vl))
+    }
+}
+
+/**
+ * tl2l
+ *
+ * <pre>
+ * </pre>
+ *
+ * @example
+ * term
+ *
+ *     //prototype
+ *     var tl = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+ *     tl.list()
+ *     ////
+ *     [ 0, 'a', 1, 'b', 2, 'c', 0, 'a', 1, 'b', 2, 'c' ]
+ *
+ *     //function
+ *     var tl = [ [ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'] ]
+ *     tlist.tl2l(tl)
+ *     ////
+ *     > tlist.tl2l(tl)
+ *     [ 0, 'a', 1, 'b', 2, 'c', 0, 'a', 1, 'b', 2, 'c' ]
+ *
+ * @param {Array} tl - tlist
+ * @return {Array} l - list
+ */
+
+
+function tl2l(tl) {
+    let [kl,vl] = tl2kvl(tl)
+    let l = elel.interleave(kl,vl,1)
+    return(l)
+}
+
+function _list() {
+    return(Array.from(tl2l(tl)))
+}
+
+Object.defineProperty(Tlist.prototype, "list", {
+    value: _list,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
 
 
 module.exports = {
+     Tlist,
      isTuple,
      isTlist,
      t2d,
@@ -2464,6 +3922,8 @@ module.exports = {
      tl2kvl,
      tl2d,
      d2tl,
+     l2tl,
+     tl2l,
      extend,
      prextend,
      allIndexesOfK,
@@ -2476,6 +3936,9 @@ module.exports = {
      lastIndexOfV,
      lastIndexOfKV,
      insert,
+     insertOne,
+     append,
+     prepend,
      insertTl,
      includesK,
      includesV,
@@ -2508,6 +3971,8 @@ module.exports = {
      getAllV,
      getAllKV,
      set,
+     setFirst,
+     setLast,
      setAll,
      tupleEqK,
      tupleEqV,
