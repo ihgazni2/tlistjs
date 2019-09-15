@@ -956,12 +956,14 @@ Object.defineProperty(Tlist.prototype, "lastIndexOfKV", {
  */
 
 function insert(tl,key,value,position) {
-    tl.insert([key,value],position)
+    //tl.insert([key,value],position)
+    tl = elel.insert(tl,[key,value],position)
     return(tl)
 }
 
 function insertOne(tl,key,value,position) {
-    tl.insert([key,value],position)
+    //tl.insert([key,value],position)
+    tl = elel.insert(tl,[key,value],position)
     return(tl)
 }
 
@@ -1179,7 +1181,8 @@ Object.defineProperty(Tlist.prototype, "prepend", {
  */
 
 function insertTl(tl,tl1,position) {
-    tl.insertArray(tl1,position)
+    //tl.insertArray(tl1,position)
+    tl = elel.insertArray(tl,tl1,position)
     return(tl)
 }
 
