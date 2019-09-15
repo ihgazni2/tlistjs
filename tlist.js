@@ -3,7 +3,6 @@ const util = require("util")
 
 /**
  * Tlist
- * @class
  * 
  * <pre>
  * </pre>

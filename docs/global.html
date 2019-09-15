@@ -234,7 +234,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line511">line 511</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line510">line 510</a>
     </li></ul></dd>
     
 
@@ -473,7 +473,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line615">line 615</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line614">line 614</a>
     </li></ul></dd>
     
 
@@ -686,7 +686,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line562">line 562</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line561">line 561</a>
     </li></ul></dd>
     
 
@@ -926,7 +926,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1042">line 1042</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1041">line 1041</a>
     </li></ul></dd>
     
 
@@ -1017,6 +1017,222 @@
       [ 1, 'b' ],
       [ 2, 'c' ],
       [ 'k', 'v' ]]</code></pre>
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="constructor_"><span class="type-signature"></span>constructor_<span class="signature">(items)</span><span class="type-signature"> &rarr; {Array}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Tlist
+
+<pre>
+</pre>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>items</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+|
+
+<span class="param-type">Array</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">even_length_array or dict_object or tuple_array</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line66">line 66</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    tlist - tuple list
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Array</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>term
+
+    //prototype
+    var tl0 = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    tl0
+    var tl1 = new Tlist(0,'a',1,'b',2,'c',0,'a',1,'b',2,'c')
+    tl1
+    var tl2 = new Tlist({
+        0:'a',
+        1:'b',
+        2:'c'
+    })
+    tl2
+    ////
+    > var tl0 = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+    undefined
+    > tl0
+    Tlist [
+      [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ],
+      [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ] ]
+    > var tl1 = new Tlist(0,'a',1,'b',2,'c',0,'a',1,'b',2,'c')
+    undefined
+    > tl1
+    Tlist [
+      [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ],
+      [ 0, 'a' ],
+      [ 1, 'b' ],
+      [ 2, 'c' ] ]
+    > var tl2 = new Tlist({
+    ...     0:'a',
+    ...     1:'b',
+    ...     2:'c'
+    ... })
+    undefined
+    > tl2
+    Tlist [ [ '0', 'a' ], [ '1', 'b' ], [ '2', 'c' ] ]
+    >
+
+    //function
+
+   ////</code></pre>
 
 
 
@@ -1156,7 +1372,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1389">line 1389</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1388">line 1388</a>
     </li></ul></dd>
     
 
@@ -1387,7 +1603,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1478">line 1478</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1477">line 1477</a>
     </li></ul></dd>
     
 
@@ -1593,7 +1809,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1433">line 1433</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1432">line 1432</a>
     </li></ul></dd>
     
 
@@ -1773,7 +1989,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line227">line 227</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line226">line 226</a>
     </li></ul></dd>
     
 
@@ -1950,7 +2166,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line382">line 382</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line381">line 381</a>
     </li></ul></dd>
     
 
@@ -2151,7 +2367,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line415">line 415</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line414">line 414</a>
     </li></ul></dd>
     
 
@@ -2359,7 +2575,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line662">line 662</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line661">line 661</a>
     </li></ul></dd>
     
 
@@ -2591,7 +2807,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line752">line 752</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line751">line 751</a>
     </li></ul></dd>
     
 
@@ -2796,7 +3012,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line707">line 707</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line706">line 706</a>
     </li></ul></dd>
     
 
@@ -3002,7 +3218,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2474">line 2474</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2473">line 2473</a>
     </li></ul></dd>
     
 
@@ -3233,7 +3449,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2563">line 2563</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2562">line 2562</a>
     </li></ul></dd>
     
 
@@ -3438,7 +3654,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2518">line 2518</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2517">line 2517</a>
     </li></ul></dd>
     
 
@@ -3643,7 +3859,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2216">line 2216</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2215">line 2215</a>
     </li></ul></dd>
     
 
@@ -3875,7 +4091,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2301">line 2301</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2300">line 2300</a>
     </li></ul></dd>
     
 
@@ -4080,7 +4296,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2258">line 2258</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2257">line 2257</a>
     </li></ul></dd>
     
 
@@ -4308,7 +4524,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2075">line 2075</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2074">line 2074</a>
     </li></ul></dd>
     
 
@@ -4566,7 +4782,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2171">line 2171</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2170">line 2170</a>
     </li></ul></dd>
     
 
@@ -4772,7 +4988,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2343">line 2343</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2342">line 2342</a>
     </li></ul></dd>
     
 
@@ -5003,7 +5219,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2431">line 2431</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2430">line 2430</a>
     </li></ul></dd>
     
 
@@ -5208,7 +5424,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2386">line 2386</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2385">line 2385</a>
     </li></ul></dd>
     
 
@@ -5436,7 +5652,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2124">line 2124</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2123">line 2123</a>
     </li></ul></dd>
     
 
@@ -5645,7 +5861,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1242">line 1242</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1241">line 1241</a>
     </li></ul></dd>
     
 
@@ -5884,7 +6100,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1345">line 1345</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1344">line 1344</a>
     </li></ul></dd>
     
 
@@ -6097,7 +6313,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1292">line 1292</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1291">line 1291</a>
     </li></ul></dd>
     
 
@@ -6360,7 +6576,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line956">line 956</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line955">line 955</a>
     </li></ul></dd>
     
 
@@ -6613,7 +6829,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1190">line 1190</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1189">line 1189</a>
     </li></ul></dd>
     
 
@@ -6826,7 +7042,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line167">line 167</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line166">line 166</a>
     </li></ul></dd>
     
 
@@ -7012,7 +7228,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line130">line 130</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line129">line 129</a>
     </li></ul></dd>
     
 
@@ -7228,7 +7444,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line258">line 258</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line257">line 257</a>
     </li></ul></dd>
     
 
@@ -7407,7 +7623,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3870">line 3870</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3869">line 3869</a>
     </li></ul></dd>
     
 
@@ -7617,7 +7833,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line797">line 797</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line796">line 796</a>
     </li></ul></dd>
     
 
@@ -7849,7 +8065,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line884">line 884</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line883">line 883</a>
     </li></ul></dd>
     
 
@@ -8054,7 +8270,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line840">line 840</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line839">line 839</a>
     </li></ul></dd>
     
 
@@ -8286,7 +8502,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1112">line 1112</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1111">line 1111</a>
     </li></ul></dd>
     
 
@@ -8514,7 +8730,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line460">line 460</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line459">line 459</a>
     </li></ul></dd>
     
 
@@ -8722,7 +8938,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1938">line 1938</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1937">line 1937</a>
     </li></ul></dd>
     
 
@@ -8954,7 +9170,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2026">line 2026</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2025">line 2025</a>
     </li></ul></dd>
     
 
@@ -9159,7 +9375,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1982">line 1982</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1981">line 1981</a>
     </li></ul></dd>
     
 
@@ -9365,7 +9581,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1679">line 1679</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1678">line 1678</a>
     </li></ul></dd>
     
 
@@ -9597,7 +9813,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1763">line 1763</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1762">line 1762</a>
     </li></ul></dd>
     
 
@@ -9802,7 +10018,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1721">line 1721</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1720">line 1720</a>
     </li></ul></dd>
     
 
@@ -10030,7 +10246,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1528">line 1528</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1527">line 1527</a>
     </li></ul></dd>
     
 
@@ -10290,7 +10506,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1632">line 1632</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1631">line 1631</a>
     </li></ul></dd>
     
 
@@ -10502,7 +10718,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1806">line 1806</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1805">line 1805</a>
     </li></ul></dd>
     
 
@@ -10733,7 +10949,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1894">line 1894</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1893">line 1893</a>
     </li></ul></dd>
     
 
@@ -10938,7 +11154,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1851">line 1851</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1850">line 1850</a>
     </li></ul></dd>
     
 
@@ -11168,7 +11384,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1579">line 1579</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line1578">line 1578</a>
     </li></ul></dd>
     
 
@@ -11429,7 +11645,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2643">line 2643</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2642">line 2642</a>
     </li></ul></dd>
     
 
@@ -11695,7 +11911,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2849">line 2849</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2848">line 2848</a>
     </li></ul></dd>
     
 
@@ -11975,7 +12191,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2714">line 2714</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2713">line 2713</a>
     </li></ul></dd>
     
 
@@ -12253,7 +12469,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2779">line 2779</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2778">line 2778</a>
     </li></ul></dd>
     
 
@@ -12453,7 +12669,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3287">line 3287</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3286">line 3286</a>
     </li></ul></dd>
     
 
@@ -12649,7 +12865,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3423">line 3423</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3422">line 3422</a>
     </li></ul></dd>
     
 
@@ -12854,7 +13070,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3353">line 3353</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3352">line 3352</a>
     </li></ul></dd>
     
 
@@ -13059,7 +13275,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3490">line 3490</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3489">line 3489</a>
     </li></ul></dd>
     
 
@@ -13260,7 +13476,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line198">line 198</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line197">line 197</a>
     </li></ul></dd>
     
 
@@ -13437,7 +13653,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line337">line 337</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line336">line 336</a>
     </li></ul></dd>
     
 
@@ -13617,7 +13833,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line293">line 293</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line292">line 292</a>
     </li></ul></dd>
     
 
@@ -13802,7 +14018,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3912">line 3912</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3911">line 3911</a>
     </li></ul></dd>
     
 
@@ -14008,7 +14224,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3127">line 3127</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3126">line 3126</a>
     </li></ul></dd>
     
 
@@ -14199,7 +14415,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3197">line 3197</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3196">line 3196</a>
     </li></ul></dd>
     
 
@@ -14400,7 +14616,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3162">line 3162</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3161">line 3161</a>
     </li></ul></dd>
     
 
@@ -14601,7 +14817,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3236">line 3236</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3235">line 3235</a>
     </li></ul></dd>
     
 
@@ -14805,7 +15021,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2982">line 2982</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2981">line 2981</a>
     </li></ul></dd>
     
 
@@ -15006,7 +15222,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2895">line 2895</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2894">line 2894</a>
     </li></ul></dd>
     
 
@@ -15207,7 +15423,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2953">line 2953</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2952">line 2952</a>
     </li></ul></dd>
     
 
@@ -15408,7 +15624,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2924">line 2924</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line2923">line 2923</a>
     </li></ul></dd>
     
 
@@ -15609,7 +15825,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3069">line 3069</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3068">line 3068</a>
     </li></ul></dd>
     
 
@@ -15810,7 +16026,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3098">line 3098</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3097">line 3097</a>
     </li></ul></dd>
     
 
@@ -16011,7 +16227,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3011">line 3011</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3010">line 3010</a>
     </li></ul></dd>
     
 
@@ -16212,7 +16428,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3040">line 3040</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3039">line 3039</a>
     </li></ul></dd>
     
 
@@ -16387,7 +16603,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3586">line 3586</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3585">line 3585</a>
     </li></ul></dd>
     
 
@@ -16567,7 +16783,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3809">line 3809</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3808">line 3808</a>
     </li></ul></dd>
     
 
@@ -16774,7 +16990,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3697">line 3697</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3696">line 3696</a>
     </li></ul></dd>
     
 
@@ -16980,7 +17196,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3533">line 3533</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3532">line 3532</a>
     </li></ul></dd>
     
 
@@ -17211,7 +17427,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3753">line 3753</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3752">line 3752</a>
     </li></ul></dd>
     
 
@@ -17418,7 +17634,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3642">line 3642</a>
+        <a href="tlist.js.html">tlist.js</a>, <a href="tlist.js.html#line3641">line 3641</a>
     </li></ul></dd>
     
 
@@ -17505,13 +17721,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="constructor_.html">constructor_</a></li></ul><h3>Global</h3><ul><li><a href="global.html#allIndexesOfK">allIndexesOfK</a></li><li><a href="global.html#allIndexesOfKV">allIndexesOfKV</a></li><li><a href="global.html#allIndexesOfV">allIndexesOfV</a></li><li><a href="global.html#append">append</a></li><li><a href="global.html#countK">countK</a></li><li><a href="global.html#countKV">countKV</a></li><li><a href="global.html#countV">countV</a></li><li><a href="global.html#d2t">d2t</a></li><li><a href="global.html#d2tl">d2tl</a></li><li><a href="global.html#extend">extend</a></li><li><a href="global.html#firstIndexOfK">firstIndexOfK</a></li><li><a href="global.html#firstIndexOfKV">firstIndexOfKV</a></li><li><a href="global.html#firstIndexOfV">firstIndexOfV</a></li><li><a href="global.html#getAllK">getAllK</a></li><li><a href="global.html#getAllKV">getAllKV</a></li><li><a href="global.html#getAllV">getAllV</a></li><li><a href="global.html#getFirstK">getFirstK</a></li><li><a href="global.html#getFirstKV">getFirstKV</a></li><li><a href="global.html#getFirstV">getFirstV</a></li><li><a href="global.html#getK">getK</a></li><li><a href="global.html#getKV">getKV</a></li><li><a href="global.html#getLastK">getLastK</a></li><li><a href="global.html#getLastKV">getLastKV</a></li><li><a href="global.html#getLastV">getLastV</a></li><li><a href="global.html#getV">getV</a></li><li><a href="global.html#includesK">includesK</a></li><li><a href="global.html#includesKV">includesKV</a></li><li><a href="global.html#includesV">includesV</a></li><li><a href="global.html#insert">insert</a></li><li><a href="global.html#insertTl">insertTl</a></li><li><a href="global.html#isTlist">isTlist</a></li><li><a href="global.html#isTuple">isTuple</a></li><li><a href="global.html#kvl2tl">kvl2tl</a></li><li><a href="global.html#l2tl">l2tl</a></li><li><a href="global.html#lastIndexOfK">lastIndexOfK</a></li><li><a href="global.html#lastIndexOfKV">lastIndexOfKV</a></li><li><a href="global.html#lastIndexOfV">lastIndexOfV</a></li><li><a href="global.html#prepend">prepend</a></li><li><a href="global.html#prextend">prextend</a></li><li><a href="global.html#rmAllK">rmAllK</a></li><li><a href="global.html#rmAllKV">rmAllKV</a></li><li><a href="global.html#rmAllV">rmAllV</a></li><li><a href="global.html#rmFirstK">rmFirstK</a></li><li><a href="global.html#rmFirstKV">rmFirstKV</a></li><li><a href="global.html#rmFirstV">rmFirstV</a></li><li><a href="global.html#rmK">rmK</a></li><li><a href="global.html#rmKV">rmKV</a></li><li><a href="global.html#rmLastK">rmLastK</a></li><li><a href="global.html#rmLastKV">rmLastKV</a></li><li><a href="global.html#rmLastV">rmLastV</a></li><li><a href="global.html#rmV">rmV</a></li><li><a href="global.html#set">set</a></li><li><a href="global.html#setAll">setAll</a></li><li><a href="global.html#setFirst">setFirst</a></li><li><a href="global.html#setLast">setLast</a></li><li><a href="global.html#sortk">sortk</a></li><li><a href="global.html#sortkv">sortkv</a></li><li><a href="global.html#sortv">sortv</a></li><li><a href="global.html#sortvk">sortvk</a></li><li><a href="global.html#t2d">t2d</a></li><li><a href="global.html#tl2d">tl2d</a></li><li><a href="global.html#tl2kvl">tl2kvl</a></li><li><a href="global.html#tl2l">tl2l</a></li><li><a href="global.html#tupleCmpK">tupleCmpK</a></li><li><a href="global.html#tupleCmpKV">tupleCmpKV</a></li><li><a href="global.html#tupleCmpV">tupleCmpV</a></li><li><a href="global.html#tupleCmpVK">tupleCmpVK</a></li><li><a href="global.html#tupleEq">tupleEq</a></li><li><a href="global.html#tupleEqK">tupleEqK</a></li><li><a href="global.html#tupleEqKV">tupleEqKV</a></li><li><a href="global.html#tupleEqV">tupleEqV</a></li><li><a href="global.html#tupleGtK">tupleGtK</a></li><li><a href="global.html#tupleGtV">tupleGtV</a></li><li><a href="global.html#tupleLtK">tupleLtK</a></li><li><a href="global.html#tupleLtV">tupleLtV</a></li><li><a href="global.html#uniqualizeAllK">uniqualizeAllK</a></li><li><a href="global.html#uniqualizeAllKV">uniqualizeAllKV</a></li><li><a href="global.html#uniqualizeAllV">uniqualizeAllV</a></li><li><a href="global.html#uniqualizeK">uniqualizeK</a></li><li><a href="global.html#uniqualizeKV">uniqualizeKV</a></li><li><a href="global.html#uniqualizeV">uniqualizeV</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#allIndexesOfK">allIndexesOfK</a></li><li><a href="global.html#allIndexesOfKV">allIndexesOfKV</a></li><li><a href="global.html#allIndexesOfV">allIndexesOfV</a></li><li><a href="global.html#append">append</a></li><li><a href="global.html#constructor_">constructor_</a></li><li><a href="global.html#countK">countK</a></li><li><a href="global.html#countKV">countKV</a></li><li><a href="global.html#countV">countV</a></li><li><a href="global.html#d2t">d2t</a></li><li><a href="global.html#d2tl">d2tl</a></li><li><a href="global.html#extend">extend</a></li><li><a href="global.html#firstIndexOfK">firstIndexOfK</a></li><li><a href="global.html#firstIndexOfKV">firstIndexOfKV</a></li><li><a href="global.html#firstIndexOfV">firstIndexOfV</a></li><li><a href="global.html#getAllK">getAllK</a></li><li><a href="global.html#getAllKV">getAllKV</a></li><li><a href="global.html#getAllV">getAllV</a></li><li><a href="global.html#getFirstK">getFirstK</a></li><li><a href="global.html#getFirstKV">getFirstKV</a></li><li><a href="global.html#getFirstV">getFirstV</a></li><li><a href="global.html#getK">getK</a></li><li><a href="global.html#getKV">getKV</a></li><li><a href="global.html#getLastK">getLastK</a></li><li><a href="global.html#getLastKV">getLastKV</a></li><li><a href="global.html#getLastV">getLastV</a></li><li><a href="global.html#getV">getV</a></li><li><a href="global.html#includesK">includesK</a></li><li><a href="global.html#includesKV">includesKV</a></li><li><a href="global.html#includesV">includesV</a></li><li><a href="global.html#insert">insert</a></li><li><a href="global.html#insertTl">insertTl</a></li><li><a href="global.html#isTlist">isTlist</a></li><li><a href="global.html#isTuple">isTuple</a></li><li><a href="global.html#kvl2tl">kvl2tl</a></li><li><a href="global.html#l2tl">l2tl</a></li><li><a href="global.html#lastIndexOfK">lastIndexOfK</a></li><li><a href="global.html#lastIndexOfKV">lastIndexOfKV</a></li><li><a href="global.html#lastIndexOfV">lastIndexOfV</a></li><li><a href="global.html#prepend">prepend</a></li><li><a href="global.html#prextend">prextend</a></li><li><a href="global.html#rmAllK">rmAllK</a></li><li><a href="global.html#rmAllKV">rmAllKV</a></li><li><a href="global.html#rmAllV">rmAllV</a></li><li><a href="global.html#rmFirstK">rmFirstK</a></li><li><a href="global.html#rmFirstKV">rmFirstKV</a></li><li><a href="global.html#rmFirstV">rmFirstV</a></li><li><a href="global.html#rmK">rmK</a></li><li><a href="global.html#rmKV">rmKV</a></li><li><a href="global.html#rmLastK">rmLastK</a></li><li><a href="global.html#rmLastKV">rmLastKV</a></li><li><a href="global.html#rmLastV">rmLastV</a></li><li><a href="global.html#rmV">rmV</a></li><li><a href="global.html#set">set</a></li><li><a href="global.html#setAll">setAll</a></li><li><a href="global.html#setFirst">setFirst</a></li><li><a href="global.html#setLast">setLast</a></li><li><a href="global.html#sortk">sortk</a></li><li><a href="global.html#sortkv">sortkv</a></li><li><a href="global.html#sortv">sortv</a></li><li><a href="global.html#sortvk">sortvk</a></li><li><a href="global.html#t2d">t2d</a></li><li><a href="global.html#tl2d">tl2d</a></li><li><a href="global.html#tl2kvl">tl2kvl</a></li><li><a href="global.html#tl2l">tl2l</a></li><li><a href="global.html#tupleCmpK">tupleCmpK</a></li><li><a href="global.html#tupleCmpKV">tupleCmpKV</a></li><li><a href="global.html#tupleCmpV">tupleCmpV</a></li><li><a href="global.html#tupleCmpVK">tupleCmpVK</a></li><li><a href="global.html#tupleEq">tupleEq</a></li><li><a href="global.html#tupleEqK">tupleEqK</a></li><li><a href="global.html#tupleEqKV">tupleEqKV</a></li><li><a href="global.html#tupleEqV">tupleEqV</a></li><li><a href="global.html#tupleGtK">tupleGtK</a></li><li><a href="global.html#tupleGtV">tupleGtV</a></li><li><a href="global.html#tupleLtK">tupleLtK</a></li><li><a href="global.html#tupleLtV">tupleLtV</a></li><li><a href="global.html#uniqualizeAllK">uniqualizeAllK</a></li><li><a href="global.html#uniqualizeAllKV">uniqualizeAllKV</a></li><li><a href="global.html#uniqualizeAllV">uniqualizeAllV</a></li><li><a href="global.html#uniqualizeK">uniqualizeK</a></li><li><a href="global.html#uniqualizeKV">uniqualizeKV</a></li><li><a href="global.html#uniqualizeV">uniqualizeV</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Sun Sep 15 2019 10:59:15 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Sun Sep 15 2019 11:06:30 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
