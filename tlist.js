@@ -1,67 +1,6 @@
 const elel = require("elist")
 const util = require("util")
 
-/**
- * Tlist
- * 
- * <pre>
- * </pre>
- *
- * @example
- * term
- *
- *     //prototype
- *     var tl0 = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
- *     tl0
- *     var tl1 = new Tlist(0,'a',1,'b',2,'c',0,'a',1,'b',2,'c')
- *     tl1
- *     var tl2 = new Tlist({
- *         0:'a',
- *         1:'b',
- *         2:'c'
- *     })
- *     tl2
- *     ////
- *     > var tl0 = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
- *     undefined
- *     > tl0
- *     Tlist [
- *       [ 0, 'a' ],
- *       [ 1, 'b' ],
- *       [ 2, 'c' ],
- *       [ 0, 'a' ],
- *       [ 1, 'b' ],
- *       [ 2, 'c' ] ]
- *     > var tl1 = new Tlist(0,'a',1,'b',2,'c',0,'a',1,'b',2,'c')
- *     undefined
- *     > tl1
- *     Tlist [
- *       [ 0, 'a' ],
- *       [ 1, 'b' ],
- *       [ 2, 'c' ],
- *       [ 0, 'a' ],
- *       [ 1, 'b' ],
- *       [ 2, 'c' ] ]
- *     > var tl2 = new Tlist({
- *     ...     0:'a',
- *     ...     1:'b',
- *     ...     2:'c'
- *     ... })
- *     undefined
- *     > tl2
- *     Tlist [ [ '0', 'a' ], [ '1', 'b' ], [ '2', 'c' ] ]
- *     >
- *
- *     //function
- *
- *    ////
- *
- *
- *
- * @param {Object|Array} items - even_length_array or dict_object or tuple_array  
- * @return {Array} tlist - tuple list
- *
- */
 
 function constructor_(items) {
     if(isTlist(items)) {
@@ -78,6 +17,67 @@ function constructor_(items) {
 
 
 class Tlist  extends Array {
+    /**
+     * @constructor
+     *
+     * <pre>
+     * </pre>
+     *
+     * @example
+     * term
+     *
+     *     //prototype
+     *     var tl0 = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+     *     tl0
+     *     var tl1 = new Tlist(0,'a',1,'b',2,'c',0,'a',1,'b',2,'c')
+     *     tl1
+     *     var tl2 = new Tlist({
+     *         0:'a',
+     *         1:'b',
+     *         2:'c'
+     *     })
+     *     tl2
+     *     ////
+     *     > var tl0 = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+     *     undefined
+     *     > tl0
+     *     Tlist [
+     *       [ 0, 'a' ],
+     *       [ 1, 'b' ],
+     *       [ 2, 'c' ],
+     *       [ 0, 'a' ],
+     *       [ 1, 'b' ],
+     *       [ 2, 'c' ] ]
+     *     > var tl1 = new Tlist(0,'a',1,'b',2,'c',0,'a',1,'b',2,'c')
+     *     undefined
+     *     > tl1
+     *     Tlist [
+     *       [ 0, 'a' ],
+     *       [ 1, 'b' ],
+     *       [ 2, 'c' ],
+     *       [ 0, 'a' ],
+     *       [ 1, 'b' ],
+     *       [ 2, 'c' ] ]
+     *     > var tl2 = new Tlist({
+     *     ...     0:'a',
+     *     ...     1:'b',
+     *     ...     2:'c'
+     *     ... })
+     *     undefined
+     *     > tl2
+     *     Tlist [ [ '0', 'a' ], [ '1', 'b' ], [ '2', 'c' ] ]
+     *     >
+     *
+     *     //function
+     *
+     *    ////
+     *
+     *
+     *
+     * @param {Object|Array} items - even_length_array or dict_object or tuple_array
+     * @return {Array} tlist - tuple list
+     *
+     */
     constructor(...items) {
         super(...constructor_(items))
     }

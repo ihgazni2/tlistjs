@@ -29,67 +29,6 @@
             <pre class="prettyprint source linenums"><code>const elel = require("elist")
 const util = require("util")
 
-/**
- * Tlist
- * 
- * &lt;pre>
- * &lt;/pre>
- *
- * @example
- * term
- *
- *     //prototype
- *     var tl0 = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
- *     tl0
- *     var tl1 = new Tlist(0,'a',1,'b',2,'c',0,'a',1,'b',2,'c')
- *     tl1
- *     var tl2 = new Tlist({
- *         0:'a',
- *         1:'b',
- *         2:'c'
- *     })
- *     tl2
- *     ////
- *     > var tl0 = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
- *     undefined
- *     > tl0
- *     Tlist [
- *       [ 0, 'a' ],
- *       [ 1, 'b' ],
- *       [ 2, 'c' ],
- *       [ 0, 'a' ],
- *       [ 1, 'b' ],
- *       [ 2, 'c' ] ]
- *     > var tl1 = new Tlist(0,'a',1,'b',2,'c',0,'a',1,'b',2,'c')
- *     undefined
- *     > tl1
- *     Tlist [
- *       [ 0, 'a' ],
- *       [ 1, 'b' ],
- *       [ 2, 'c' ],
- *       [ 0, 'a' ],
- *       [ 1, 'b' ],
- *       [ 2, 'c' ] ]
- *     > var tl2 = new Tlist({
- *     ...     0:'a',
- *     ...     1:'b',
- *     ...     2:'c'
- *     ... })
- *     undefined
- *     > tl2
- *     Tlist [ [ '0', 'a' ], [ '1', 'b' ], [ '2', 'c' ] ]
- *     >
- *
- *     //function
- *
- *    ////
- *
- *
- *
- * @param {Object|Array} items - even_length_array or dict_object or tuple_array  
- * @return {Array} tlist - tuple list
- *
- */
 
 function constructor_(items) {
     if(isTlist(items)) {
@@ -106,6 +45,67 @@ function constructor_(items) {
 
 
 class Tlist  extends Array {
+    /**
+     * @constructor
+     *
+     * &lt;pre>
+     * &lt;/pre>
+     *
+     * @example
+     * term
+     *
+     *     //prototype
+     *     var tl0 = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+     *     tl0
+     *     var tl1 = new Tlist(0,'a',1,'b',2,'c',0,'a',1,'b',2,'c')
+     *     tl1
+     *     var tl2 = new Tlist({
+     *         0:'a',
+     *         1:'b',
+     *         2:'c'
+     *     })
+     *     tl2
+     *     ////
+     *     > var tl0 = new Tlist([ 0, 'a' ], [ 1, 'b' ],[2, 'c'], [ 0, 'a' ], [ 1, 'b' ],[2,'c'])
+     *     undefined
+     *     > tl0
+     *     Tlist [
+     *       [ 0, 'a' ],
+     *       [ 1, 'b' ],
+     *       [ 2, 'c' ],
+     *       [ 0, 'a' ],
+     *       [ 1, 'b' ],
+     *       [ 2, 'c' ] ]
+     *     > var tl1 = new Tlist(0,'a',1,'b',2,'c',0,'a',1,'b',2,'c')
+     *     undefined
+     *     > tl1
+     *     Tlist [
+     *       [ 0, 'a' ],
+     *       [ 1, 'b' ],
+     *       [ 2, 'c' ],
+     *       [ 0, 'a' ],
+     *       [ 1, 'b' ],
+     *       [ 2, 'c' ] ]
+     *     > var tl2 = new Tlist({
+     *     ...     0:'a',
+     *     ...     1:'b',
+     *     ...     2:'c'
+     *     ... })
+     *     undefined
+     *     > tl2
+     *     Tlist [ [ '0', 'a' ], [ '1', 'b' ], [ '2', 'c' ] ]
+     *     >
+     *
+     *     //function
+     *
+     *    ////
+     *
+     *
+     *
+     * @param {Object|Array} items - even_length_array or dict_object or tuple_array
+     * @return {Array} tlist - tuple list
+     *
+     */
     constructor(...items) {
         super(...constructor_(items))
     }
@@ -4050,13 +4050,14 @@ module.exports = {
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#allIndexesOfK">allIndexesOfK</a></li><li><a href="global.html#allIndexesOfKV">allIndexesOfKV</a></li><li><a href="global.html#allIndexesOfV">allIndexesOfV</a></li><li><a href="global.html#append">append</a></li><li><a href="global.html#constructor_">constructor_</a></li><li><a href="global.html#countK">countK</a></li><li><a href="global.html#countKV">countKV</a></li><li><a href="global.html#countV">countV</a></li><li><a href="global.html#d2t">d2t</a></li><li><a href="global.html#d2tl">d2tl</a></li><li><a href="global.html#extend">extend</a></li><li><a href="global.html#firstIndexOfK">firstIndexOfK</a></li><li><a href="global.html#firstIndexOfKV">firstIndexOfKV</a></li><li><a href="global.html#firstIndexOfV">firstIndexOfV</a></li><li><a href="global.html#getAllK">getAllK</a></li><li><a href="global.html#getAllKV">getAllKV</a></li><li><a href="global.html#getAllV">getAllV</a></li><li><a href="global.html#getFirstK">getFirstK</a></li><li><a href="global.html#getFirstKV">getFirstKV</a></li><li><a href="global.html#getFirstV">getFirstV</a></li><li><a href="global.html#getK">getK</a></li><li><a href="global.html#getKV">getKV</a></li><li><a href="global.html#getLastK">getLastK</a></li><li><a href="global.html#getLastKV">getLastKV</a></li><li><a href="global.html#getLastV">getLastV</a></li><li><a href="global.html#getV">getV</a></li><li><a href="global.html#includesK">includesK</a></li><li><a href="global.html#includesKV">includesKV</a></li><li><a href="global.html#includesV">includesV</a></li><li><a href="global.html#insert">insert</a></li><li><a href="global.html#insertTl">insertTl</a></li><li><a href="global.html#isTlist">isTlist</a></li><li><a href="global.html#isTuple">isTuple</a></li><li><a href="global.html#kvl2tl">kvl2tl</a></li><li><a href="global.html#l2tl">l2tl</a></li><li><a href="global.html#lastIndexOfK">lastIndexOfK</a></li><li><a href="global.html#lastIndexOfKV">lastIndexOfKV</a></li><li><a href="global.html#lastIndexOfV">lastIndexOfV</a></li><li><a href="global.html#prepend">prepend</a></li><li><a href="global.html#prextend">prextend</a></li><li><a href="global.html#rmAllK">rmAllK</a></li><li><a href="global.html#rmAllKV">rmAllKV</a></li><li><a href="global.html#rmAllV">rmAllV</a></li><li><a href="global.html#rmFirstK">rmFirstK</a></li><li><a href="global.html#rmFirstKV">rmFirstKV</a></li><li><a href="global.html#rmFirstV">rmFirstV</a></li><li><a href="global.html#rmK">rmK</a></li><li><a href="global.html#rmKV">rmKV</a></li><li><a href="global.html#rmLastK">rmLastK</a></li><li><a href="global.html#rmLastKV">rmLastKV</a></li><li><a href="global.html#rmLastV">rmLastV</a></li><li><a href="global.html#rmV">rmV</a></li><li><a href="global.html#set">set</a></li><li><a href="global.html#setAll">setAll</a></li><li><a href="global.html#setFirst">setFirst</a></li><li><a href="global.html#setLast">setLast</a></li><li><a href="global.html#sortk">sortk</a></li><li><a href="global.html#sortkv">sortkv</a></li><li><a href="global.html#sortv">sortv</a></li><li><a href="global.html#sortvk">sortvk</a></li><li><a href="global.html#t2d">t2d</a></li><li><a href="global.html#tl2d">tl2d</a></li><li><a href="global.html#tl2kvl">tl2kvl</a></li><li><a href="global.html#tl2l">tl2l</a></li><li><a href="global.html#tupleCmpK">tupleCmpK</a></li><li><a href="global.html#tupleCmpKV">tupleCmpKV</a></li><li><a href="global.html#tupleCmpV">tupleCmpV</a></li><li><a href="global.html#tupleCmpVK">tupleCmpVK</a></li><li><a href="global.html#tupleEq">tupleEq</a></li><li><a href="global.html#tupleEqK">tupleEqK</a></li><li><a href="global.html#tupleEqKV">tupleEqKV</a></li><li><a href="global.html#tupleEqV">tupleEqV</a></li><li><a href="global.html#tupleGtK">tupleGtK</a></li><li><a href="global.html#tupleGtV">tupleGtV</a></li><li><a href="global.html#tupleLtK">tupleLtK</a></li><li><a href="global.html#tupleLtV">tupleLtV</a></li><li><a href="global.html#uniqualizeAllK">uniqualizeAllK</a></li><li><a href="global.html#uniqualizeAllKV">uniqualizeAllKV</a></li><li><a href="global.html#uniqualizeAllV">uniqualizeAllV</a></li><li><a href="global.html#uniqualizeK">uniqualizeK</a></li><li><a href="global.html#uniqualizeKV">uniqualizeKV</a></li><li><a href="global.html#uniqualizeV">uniqualizeV</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="-_pre_%250A__pre_.html"><pre>
+</pre></a></li></ul><h3>Global</h3><ul><li><a href="global.html#allIndexesOfK">allIndexesOfK</a></li><li><a href="global.html#allIndexesOfKV">allIndexesOfKV</a></li><li><a href="global.html#allIndexesOfV">allIndexesOfV</a></li><li><a href="global.html#append">append</a></li><li><a href="global.html#countK">countK</a></li><li><a href="global.html#countKV">countKV</a></li><li><a href="global.html#countV">countV</a></li><li><a href="global.html#d2t">d2t</a></li><li><a href="global.html#d2tl">d2tl</a></li><li><a href="global.html#extend">extend</a></li><li><a href="global.html#firstIndexOfK">firstIndexOfK</a></li><li><a href="global.html#firstIndexOfKV">firstIndexOfKV</a></li><li><a href="global.html#firstIndexOfV">firstIndexOfV</a></li><li><a href="global.html#getAllK">getAllK</a></li><li><a href="global.html#getAllKV">getAllKV</a></li><li><a href="global.html#getAllV">getAllV</a></li><li><a href="global.html#getFirstK">getFirstK</a></li><li><a href="global.html#getFirstKV">getFirstKV</a></li><li><a href="global.html#getFirstV">getFirstV</a></li><li><a href="global.html#getK">getK</a></li><li><a href="global.html#getKV">getKV</a></li><li><a href="global.html#getLastK">getLastK</a></li><li><a href="global.html#getLastKV">getLastKV</a></li><li><a href="global.html#getLastV">getLastV</a></li><li><a href="global.html#getV">getV</a></li><li><a href="global.html#includesK">includesK</a></li><li><a href="global.html#includesKV">includesKV</a></li><li><a href="global.html#includesV">includesV</a></li><li><a href="global.html#insert">insert</a></li><li><a href="global.html#insertTl">insertTl</a></li><li><a href="global.html#isTlist">isTlist</a></li><li><a href="global.html#isTuple">isTuple</a></li><li><a href="global.html#kvl2tl">kvl2tl</a></li><li><a href="global.html#l2tl">l2tl</a></li><li><a href="global.html#lastIndexOfK">lastIndexOfK</a></li><li><a href="global.html#lastIndexOfKV">lastIndexOfKV</a></li><li><a href="global.html#lastIndexOfV">lastIndexOfV</a></li><li><a href="global.html#prepend">prepend</a></li><li><a href="global.html#prextend">prextend</a></li><li><a href="global.html#rmAllK">rmAllK</a></li><li><a href="global.html#rmAllKV">rmAllKV</a></li><li><a href="global.html#rmAllV">rmAllV</a></li><li><a href="global.html#rmFirstK">rmFirstK</a></li><li><a href="global.html#rmFirstKV">rmFirstKV</a></li><li><a href="global.html#rmFirstV">rmFirstV</a></li><li><a href="global.html#rmK">rmK</a></li><li><a href="global.html#rmKV">rmKV</a></li><li><a href="global.html#rmLastK">rmLastK</a></li><li><a href="global.html#rmLastKV">rmLastKV</a></li><li><a href="global.html#rmLastV">rmLastV</a></li><li><a href="global.html#rmV">rmV</a></li><li><a href="global.html#set">set</a></li><li><a href="global.html#setAll">setAll</a></li><li><a href="global.html#setFirst">setFirst</a></li><li><a href="global.html#setLast">setLast</a></li><li><a href="global.html#sortk">sortk</a></li><li><a href="global.html#sortkv">sortkv</a></li><li><a href="global.html#sortv">sortv</a></li><li><a href="global.html#sortvk">sortvk</a></li><li><a href="global.html#t2d">t2d</a></li><li><a href="global.html#tl2d">tl2d</a></li><li><a href="global.html#tl2kvl">tl2kvl</a></li><li><a href="global.html#tl2l">tl2l</a></li><li><a href="global.html#tupleCmpK">tupleCmpK</a></li><li><a href="global.html#tupleCmpKV">tupleCmpKV</a></li><li><a href="global.html#tupleCmpV">tupleCmpV</a></li><li><a href="global.html#tupleCmpVK">tupleCmpVK</a></li><li><a href="global.html#tupleEq">tupleEq</a></li><li><a href="global.html#tupleEqK">tupleEqK</a></li><li><a href="global.html#tupleEqKV">tupleEqKV</a></li><li><a href="global.html#tupleEqV">tupleEqV</a></li><li><a href="global.html#tupleGtK">tupleGtK</a></li><li><a href="global.html#tupleGtV">tupleGtV</a></li><li><a href="global.html#tupleLtK">tupleLtK</a></li><li><a href="global.html#tupleLtV">tupleLtV</a></li><li><a href="global.html#uniqualizeAllK">uniqualizeAllK</a></li><li><a href="global.html#uniqualizeAllKV">uniqualizeAllKV</a></li><li><a href="global.html#uniqualizeAllV">uniqualizeAllV</a></li><li><a href="global.html#uniqualizeK">uniqualizeK</a></li><li><a href="global.html#uniqualizeKV">uniqualizeKV</a></li><li><a href="global.html#uniqualizeV">uniqualizeV</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Sun Sep 15 2019 11:06:30 GMT+0000 (Coordinated Universal Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.3</a> on Sun Sep 15 2019 11:22:44 GMT+0000 (Coordinated Universal Time)
 </footer>
 
 <script> prettyPrint(); </script>
