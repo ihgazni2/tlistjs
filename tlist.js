@@ -1042,7 +1042,7 @@ Object.defineProperty(Tlist.prototype, "insertOne", {
  */
 
 function append(tl,key,value) {
-    return(insert(tl,key,value,tl.length-1))
+    return(insert(tl,key,value,tl.length))
 }
 
 function _append(key,value) {
