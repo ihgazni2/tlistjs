@@ -2776,7 +2776,8 @@ Object.defineProperty(Tlist.prototype, "setFirst", {
  */
 
 function setLast(tl,key,value) {
-    return(set(tl,key,value,tl.length-1))
+    let lngth = countK(tl,key) 
+    return(set(tl,key,value,lngth-1))
 }
 
 function _setLast(key,value) {
