@@ -8,7 +8,7 @@ const util = require("util")
  * <pre>
  * </pre>
  *
- * @example@
+ * @example
  * term
  *
  *     //prototype
@@ -56,8 +56,6 @@ const util = require("util")
  *     //function
  *
  *    ////
- *
- *
  *
  *
  *
