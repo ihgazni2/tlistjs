@@ -2583,6 +2583,7 @@ Object.defineProperty(Tlist.prototype, "getAllKV", {
  * set
  *
  * <pre>
+ *     this will change the original tlist
  * </pre>
  *
  * @example
@@ -2664,6 +2665,7 @@ Object.defineProperty(Tlist.prototype, "set", {
  * setFirst
  *
  * <pre>
+ *     this will change the original tlist
  * </pre>
  *
  * @example
@@ -2731,6 +2733,7 @@ Object.defineProperty(Tlist.prototype, "setFirst", {
  * setLast
  *
  * <pre>
+ *     this will change the original tlist
  * </pre>
  *
  * @example
@@ -2796,6 +2799,7 @@ Object.defineProperty(Tlist.prototype, "setLast", {
  * setAll
  *
  * <pre>
+ *     this will change the original tlist
  * </pre>
  *
  * @example
