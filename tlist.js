@@ -971,12 +971,21 @@ function _insert(key,value,position) {
     return(insert(this,key,value,position))
 }
 
+Object.defineProperty(Tlist.prototype, "insert", {
+    value: _insert,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 Object.defineProperty(Tlist.prototype, "insertOne", {
     value: _insert,
     writable: true,
     enumerable: false,
     configurable: true
 })
+
 
 
 /**
