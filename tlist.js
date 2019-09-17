@@ -997,6 +997,7 @@ Object.defineProperty(Tlist.prototype, "lastIndexOfKV", {
 
 function insert(tl,key,value,position) {
     //to avoid re trigger constructor, when using customer defined constructor
+    let old = tl
     tl = JSON.parse(JSON.stringify(tl))
     tl = elel.insert(tl,[key,value],position)
     if(old instanceof Tlist) {
@@ -1006,7 +1007,7 @@ function insert(tl,key,value,position) {
 }
 
 function insertOne(tl,key,value,position) {
-    old = tl
+    let old = tl
     tl = JSON.parse(JSON.stringify(tl))
     tl = elel.insert(tl,[key,value],position)
     if(old instanceof Tlist) {
@@ -1215,7 +1216,7 @@ Object.defineProperty(Tlist.prototype, "prepend", {
  */
 
 function insertTl(tl,tl1,position) {
-    old = tl 
+    let old = tl 
     tl = JSON.parse(JSON.stringify(tl))
     tl = elel.insertArray(tl,tl1,position)
     if(old instanceof Tlist) {
