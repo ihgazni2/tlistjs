@@ -906,7 +906,6 @@ Object.defineProperty(Tlist.prototype, "lastIndexOfKV", {
  * insert
  *
  * <pre>
- *     this method will change the original Tlist
  * </pre>
  *
  * @example
@@ -919,15 +918,6 @@ Object.defineProperty(Tlist.prototype, "lastIndexOfKV", {
  *     tl.insertOne('k','v',2) 
  *     ////
  *     > tl.insertOne('k','v',2)
- *     Tlist [
- *       [ 0, 'a' ],
- *       [ 1, 'b' ],
- *       [ 'k', 'v' ],
- *       [ 2, 'c' ],
- *       [ 0, 'a' ],
- *       [ 1, 'b' ],
- *       [ 2, 'c' ] ]
- *     > tl
  *     Tlist [
  *       [ 0, 'a' ],
  *       [ 1, 'b' ],
@@ -959,13 +949,14 @@ Object.defineProperty(Tlist.prototype, "lastIndexOfKV", {
  */
 
 function insert(tl,key,value,position) {
-    //tl.insert([key,value],position)
+    //to avoid re trigger constructor, when using customer defined constructor
+    tl = JSON.parse(JSON.stringify(tl))
     tl = elel.insert(tl,[key,value],position)
     return(tl)
 }
 
 function insertOne(tl,key,value,position) {
-    //tl.insert([key,value],position)
+    tl = JSON.parse(JSON.stringify(tl))
     tl = elel.insert(tl,[key,value],position)
     return(tl)
 }
@@ -995,7 +986,6 @@ Object.defineProperty(Tlist.prototype, "insertOne", {
  * append
  *
  * <pre>
- *     this method will change the original Tlist
  * </pre>
  *
  * @example
@@ -1006,15 +996,6 @@ Object.defineProperty(Tlist.prototype, "insertOne", {
  *     tl.append('k','v')
  *     ////
  *     > tl.append('k','v')
- *     Tlist [
- *       [ 0, 'a' ],
- *       [ 1, 'b' ],
- *       [ 2, 'c' ],
- *       [ 0, 'a' ],
- *       [ 1, 'b' ],
- *       [ 2, 'c' ],
- *       [ 'k', 'v' ]]
- *     > tl
  *     Tlist [
  *       [ 0, 'a' ],
  *       [ 1, 'b' ],
@@ -1063,7 +1044,6 @@ Object.defineProperty(Tlist.prototype, "append", {
  * prepend
  *
  * <pre>
- *     this method will change the original Tlist
  * </pre>
  *
  * @example
@@ -1074,15 +1054,6 @@ Object.defineProperty(Tlist.prototype, "append", {
  *     tl.prepend('k','v')
  *     ////
  *     > tl.prepend('k','v')
- *     Tlist [
- *       ['k', 'v'],
- *       [ 0, 'a' ],
- *       [ 1, 'b' ],
- *       [ 2, 'c' ],
- *       [ 0, 'a' ],
- *       [ 1, 'b' ],
- *       [ 2, 'c' ]]
- *     > tl
  *     Tlist [
  *       ['k', 'v'],
  *       [ 0, 'a' ],
@@ -1134,7 +1105,6 @@ Object.defineProperty(Tlist.prototype, "prepend", {
  * insertTl
  *
  * <pre>
- *     this method will change the original Tlist
  * </pre>
  *
  * @example
@@ -1178,8 +1148,6 @@ Object.defineProperty(Tlist.prototype, "prepend", {
  *     > tl
  *     [ [ 0, 'a' ],
  *       [ 1, 'b' ],
- *       [ 'k', 'v' ],
- *       [ 'k', 'v' ],
  *       [ 2, 'c' ],
  *       [ 0, 'a' ],
  *       [ 1, 'b' ],
@@ -1193,7 +1161,7 @@ Object.defineProperty(Tlist.prototype, "prepend", {
  */
 
 function insertTl(tl,tl1,position) {
-    //tl.insertArray(tl1,position)
+    tl = JSON.parse(JSON.stringify(tl))
     tl = elel.insertArray(tl,tl1,position)
     return(tl)
 }
@@ -3252,7 +3220,6 @@ function tupleCmpVK(t0,t1) {
  * sortk
  *
  * <pre>
- *     this will change the original Tlist
  * </pre>
  *
  * @example
@@ -3290,6 +3257,7 @@ function tupleCmpVK(t0,t1) {
  */
 
 function sortk(tl) {
+    tl = JSON.parse(JSON.stringify(tl))
     tl.sort(tupleCmpK)
     return(tl)
 }
@@ -3309,7 +3277,6 @@ Object.defineProperty(Tlist.prototype, "sortk", {
  * sortv
  *
  * <pre>
- *     this will change the original Tlist
  * </pre>
  *
  * @example
@@ -3332,10 +3299,10 @@ Object.defineProperty(Tlist.prototype, "sortk", {
  *     > tl
  *     Tlist [
  *       [ 0, 'a' ],
- *       [ 3, 'a' ],
- *       [ 1, 'b' ],
  *       [ 1, 'b' ],
  *       [ 2, 'c' ],
+ *       [ 3, 'a' ],
+ *       [ 1, 'b' ],
  *       [ 2, 'c' ] ]
  *     >
  *
@@ -3356,6 +3323,7 @@ Object.defineProperty(Tlist.prototype, "sortk", {
  */
 
 function sortv(tl) {
+    tl = JSON.parse(JSON.stringify(tl))
     tl.sort(tupleCmpV)
     return(tl)
 }
@@ -3377,7 +3345,6 @@ Object.defineProperty(Tlist.prototype, "sortv", {
  * sortkv
  *
  * <pre>
- *     this will change the original Tlist
  *     sort will first compare key, and then compare value
  * </pre>
  *
@@ -3402,10 +3369,10 @@ Object.defineProperty(Tlist.prototype, "sortv", {
  *     Tlist [
  *       [ 0, 'a' ],
  *       [ 1, 'b' ],
+ *       [ 2, 'c' ],
+ *       [ 3, 'a' ],
  *       [ 1, 'b' ],
- *       [ 2, 'c' ],
- *       [ 2, 'c' ],
- *       [ 3, 'a' ] ]
+ *       [ 2, 'c' ] ]
  *     >
  *
  *
@@ -3426,6 +3393,7 @@ Object.defineProperty(Tlist.prototype, "sortv", {
  */
 
 function sortkv(tl) {
+    tl = JSON.parse(JSON.stringify(tl))
     tl.sort(tupleCmpKV)
     return(tl)
 }
@@ -3447,7 +3415,6 @@ Object.defineProperty(Tlist.prototype, "sortkv", {
  * sortvk
  *
  * <pre>
- *     this will change the original Tlist
  *     sort will first compare value, and then compare key
  * </pre>
  *
@@ -3470,10 +3437,10 @@ Object.defineProperty(Tlist.prototype, "sortkv", {
  *     > tl
  *     Tlist [
  *       [ 0, 'a' ],
- *       [ 3, 'a' ],
- *       [ 1, 'b' ],
  *       [ 1, 'b' ],
  *       [ 2, 'c' ],
+ *       [ 3, 'a' ],
+ *       [ 1, 'b' ],
  *       [ 2, 'c' ] ]
  *     >
  *
@@ -3493,6 +3460,7 @@ Object.defineProperty(Tlist.prototype, "sortkv", {
  */
 
 function sortvk(tl) {
+    tl = JSON.parse(JSON.stringify(tl))
     tl.sort(tupleCmpVK)
     return(tl)
 }
