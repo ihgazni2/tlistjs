@@ -1,6 +1,6 @@
 {
     "name": "tlist",
-    "version": "1.0.16",
+    "version": "1.0.17",
     "description": "tuple list",
     "main": "tlist.js",
     "scripts": {

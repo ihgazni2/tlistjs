@@ -264,6 +264,53 @@ function kvl2tl(kl,vl) {
     return(elel.mapiv(kl,(i,v,o)=>([v,o[i]]),[vl]))
 }
 
+
+/**
+ * deepcopy
+ *
+ * <pre>
+ * </pre>
+ *
+ * @example
+ * term
+ *      var tlist = require("tlist")
+ *      //prototype
+ *      var  tl=new Tlist([ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'a' ], [ 3, 'b' ] ])
+ *      tl.deepcopy()
+ *     ////
+ *
+ *     //function
+ *     var tl = [ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'a' ], [ 3, 'b' ] ]
+ *     tlist.deepcopy(tl)
+ *     ////
+ *     > tlist.deepcopy(tl)
+ *     [ [ 0, 'a' ], [ 1, 'b' ], [ 2, 'a' ], [ 3, 'b' ] ]
+ *
+ * @return {Array} tl - [t0,t1,...tk...,tn]
+ * @return {Array} ntl - new tlist
+ */
+
+function deepcopy(tl) {
+    let old = tl
+    let ntl = JSON.parse(JSON.stringify(tl))
+    if(old instanceof Tlist) {
+        ntl = new Tlist(tl)
+    }
+    return(ntl)
+}
+
+function _deepcopy() {
+    return(deepcopy(this))
+}
+
+Object.defineProperty(Tlist.prototype, "deepcopy", {
+    value: _deepcopy,
+    writable: true,
+    enumerable: false,
+    configurable: true
+})
+
+
 /**
  * tl2kvl 
  *
@@ -952,12 +999,19 @@ function insert(tl,key,value,position) {
     //to avoid re trigger constructor, when using customer defined constructor
     tl = JSON.parse(JSON.stringify(tl))
     tl = elel.insert(tl,[key,value],position)
+    if(old instanceof Tlist) {
+        tl = Tlist(tl)
+    }
     return(tl)
 }
 
 function insertOne(tl,key,value,position) {
+    old = tl
     tl = JSON.parse(JSON.stringify(tl))
     tl = elel.insert(tl,[key,value],position)
+    if(old instanceof Tlist) {
+        tl = Tlist(tl)
+    }
     return(tl)
 }
 
@@ -1161,8 +1215,12 @@ Object.defineProperty(Tlist.prototype, "prepend", {
  */
 
 function insertTl(tl,tl1,position) {
+    old = tl 
     tl = JSON.parse(JSON.stringify(tl))
     tl = elel.insertArray(tl,tl1,position)
+    if(old instanceof Tlist) {
+        tl = Tlist(tl)
+    }
     return(tl)
 }
 
