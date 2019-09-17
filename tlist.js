@@ -1001,19 +1001,13 @@ function insert(tl,key,value,position) {
     tl = JSON.parse(JSON.stringify(tl))
     tl = elel.insert(tl,[key,value],position)
     if(old instanceof Tlist) {
-        tl = Tlist(tl)
+        tl = new Tlist(tl)
     }
     return(tl)
 }
 
 function insertOne(tl,key,value,position) {
-    let old = tl
-    tl = JSON.parse(JSON.stringify(tl))
-    tl = elel.insert(tl,[key,value],position)
-    if(old instanceof Tlist) {
-        tl = Tlist(tl)
-    }
-    return(tl)
+    return(insert(tl,key,value,position))
 }
 
 function _insert(key,value,position) {
@@ -1220,7 +1214,7 @@ function insertTl(tl,tl1,position) {
     tl = JSON.parse(JSON.stringify(tl))
     tl = elel.insertArray(tl,tl1,position)
     if(old instanceof Tlist) {
-        tl = Tlist(tl)
+        tl = new Tlist(tl)
     }
     return(tl)
 }
