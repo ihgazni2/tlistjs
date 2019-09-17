@@ -293,9 +293,7 @@ function kvl2tl(kl,vl) {
 function deepcopy(tl) {
     let old = tl
     let ntl = JSON.parse(JSON.stringify(tl))
-    if(old instanceof Tlist) {
-        ntl = new Tlist(...tl)
-    }
+    ntl = elel.decltype(old,tl)
     return(ntl)
 }
 
@@ -995,23 +993,18 @@ Object.defineProperty(Tlist.prototype, "lastIndexOfKV", {
  * @return {Array} tl - tlist
  */
 
-function insert(tl,key,value,position) {
+function insert(tl,key,value,position,inplace=true) {
     //to avoid re trigger constructor, when using customer defined constructor
-    let old = tl
-    tl = JSON.parse(JSON.stringify(tl))
-    tl = elel.insert(tl,[key,value],position)
-    if(old instanceof Tlist) {
-        tl = new Tlist(...tl)
-    }
+    tl = elel.insert(tl,[key,value],position,inplace)
     return(tl)
 }
 
-function insertOne(tl,key,value,position) {
-    return(insert(tl,key,value,position))
+function insertOne(tl,key,value,position,inplace=true) {
+    return(insert(tl,key,value,position,inplace))
 }
 
-function _insert(key,value,position) {
-    return(insert(this,key,value,position))
+function _insert(key,value,position,inplace=true) {
+    return(insert(this,key,value,position,inplace))
 }
 
 Object.defineProperty(Tlist.prototype, "insert", {
@@ -1074,12 +1067,12 @@ Object.defineProperty(Tlist.prototype, "insertOne", {
  * @return {Array} tl - tlist
  */
 
-function append(tl,key,value) {
-    return(insert(tl,key,value,tl.length))
+function append(tl,key,value,inplace=true) {
+    return(insert(tl,key,value,tl.length,inplace))
 }
 
-function _append(key,value) {
-    return(append(this,key,value))
+function _append(key,value,inplace=true) {
+    return(append(this,key,value,inplace))
 }
 
 Object.defineProperty(Tlist.prototype, "append", {
@@ -1134,12 +1127,12 @@ Object.defineProperty(Tlist.prototype, "append", {
  */
 
 
-function prepend(tl,key,value) {
-    return(insert(tl,key,value,0))
+function prepend(tl,key,value,inplace=true) {
+    return(insert(tl,key,value,0,inplace))
 }
 
-function _prepend(key,value) {
-    return(prepend(this,key,value))
+function _prepend(key,value,inplace=true) {
+    return(prepend(this,key,value,inplace))
 }
 
 Object.defineProperty(Tlist.prototype, "prepend", {
@@ -1209,18 +1202,13 @@ Object.defineProperty(Tlist.prototype, "prepend", {
  * @return {Array} tl - [t0,t1,...tk...,tn]
  */
 
-function insertTl(tl,tl1,position) {
-    let old = tl 
-    tl = JSON.parse(JSON.stringify(tl))
-    tl = elel.insertArray(tl,tl1,position)
-    if(old instanceof Tlist) {
-        tl = new Tlist(...tl)
-    }
+function insertTl(tl,tl1,position,inplace=true) {
+    tl = elel.insertArray(tl,tl1,position,inplace)
     return(tl)
 }
 
-function _insertTl(tl1,position) {
-    return(insertTl(this,tl1,position))
+function _insertTl(tl1,position,inplace=true) {
+    return(insertTl(this,tl1,position,inplace))
 }
 
 Object.defineProperty(Tlist.prototype, "insertTl", {
