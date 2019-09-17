@@ -294,7 +294,7 @@ function deepcopy(tl) {
     let old = tl
     let ntl = JSON.parse(JSON.stringify(tl))
     if(old instanceof Tlist) {
-        ntl = new Tlist(tl)
+        ntl = new Tlist(...tl)
     }
     return(ntl)
 }
@@ -1001,7 +1001,7 @@ function insert(tl,key,value,position) {
     tl = JSON.parse(JSON.stringify(tl))
     tl = elel.insert(tl,[key,value],position)
     if(old instanceof Tlist) {
-        tl = new Tlist(tl)
+        tl = new Tlist(...tl)
     }
     return(tl)
 }
@@ -1214,7 +1214,7 @@ function insertTl(tl,tl1,position) {
     tl = JSON.parse(JSON.stringify(tl))
     tl = elel.insertArray(tl,tl1,position)
     if(old instanceof Tlist) {
-        tl = new Tlist(tl)
+        tl = new Tlist(...tl)
     }
     return(tl)
 }
