@@ -3940,7 +3940,23 @@ Object.defineProperty(Tlist.prototype, "list", {
     configurable: true
 })
 
+//////
+function dele2tuple(d) {
+    return(Object.entries(d)[0])
+}
 
+function tuple2dele(t) {
+    return({[t[0]]:t[1]})
+}
+
+function dl2tl(dl) {
+    return(dl.map(dele2tuple))
+}
+
+function tl2dl(tl) {
+    return(tl.map(tuple2dele))
+}
+//////
 
 module.exports = {
      Tlist,
@@ -4025,5 +4041,10 @@ module.exports = {
      uniqualizeV,
      uniqualizeAllV,
      uniqualizeKV,
-     uniqualizeAllKV
+     uniqualizeAllKV,
+     ////
+     dele2tuple,
+     tuple2dele,
+     dl2tl,
+     tl2dl
 }
