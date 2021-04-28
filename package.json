@@ -1,26 +1,19 @@
 {
     "name": "tlist",
-    "version": "1.0.22",
-    "description": "tuple list",
+    "version": "1.0.26",
     "main": "tlist.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "keywords": ["tuple", "array", "list"],
     "author": "dli",
     "license": "MIT",
-    "files": ["doc/*", "dist/*"],
-    "dependencies": {
-        "elist": "^1.4.25"
-    },
     "devDependencies": {
+        "@rollup/plugin-commonjs": "^18.0.0",
+        "@rollup/plugin-json": "^4.1.0",
+        "@rollup/plugin-node-resolve": "^11.2.1",
         "efdir": "^1.0.3",
         "jsdoc": ">1.6.3",
         "webpack": "^4.35.3",
         "webpack-cli": "^3.3.5"
-    },
-    "homepage": "https://navegador5.github.io/tlistjs/global.html#",
-    "repository": {
-        "url": "https://github.com/navegador5/tlistjs.git"
     }
 }
